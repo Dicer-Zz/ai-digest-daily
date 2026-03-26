@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 每日资讯速递 - 2026-03-21</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0f0f1a;
+            --bg-secondary: #1a1a2e;
+            --bg-card: #16162a;
+            --bg-hover: #252545;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --text-muted: #6b6b7b;
+            --accent-blue: #6366f1;
+            --accent-purple: #8b5cf6;
+            --accent-cyan: #06b6d4;
+            --accent-pink: #ec4899;
+            --accent-orange: #f97316;
+            --accent-green: #10b981;
+            --accent-yellow: #f59e0b;
+            --border-color: #2a2a4a;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.4);
+            --gradient-1: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            --gradient-2: linear-gradient(135deg, #06b6d4 0%, #6366f1 100%);
+            --gradient-3: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #fafafa;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --bg-hover: #f3f4f6;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --text-muted: #9ca3af;
+            --border-color: #e5e7eb;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            -webkit-text-fill-color: white;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+        }
+
+        .nav-link {
+            padding: 8px 16px;
+            border-radius: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover {
+            background: var(--bg-hover);
+            color: var(--text-primary);
+        }
+
+        .theme-toggle {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .theme-toggle:hover {
+            background: var(--bg-hover);
+            color: var(--text-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+
+        .hero-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 100px;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Section Headers */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 48px 0 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .section-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .section-icon.news {
+            background: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
+        }
+
+        .section-icon.github {
+            background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+        }
+
+        .section-icon.arxiv {
+            background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-blue);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-1);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-follow-up {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%);
+            border-color: rgba(245, 158, 11, 0.3);
+        }
+
+        .card-follow-up::before {
+            background: linear-gradient(90deg, #f59e0b, #f97316);
+            opacity: 1;
+        }
+
+        .follow-up-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 1.4;
+            flex: 1;
+        }
+
+        .card-number {
+            width: 32px;
+            height: 32px;
+            background: var(--gradient-1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .card-summary {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+        }
+
+        .card-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .tag {
+            padding: 4px 12px;
+            background: var(--bg-hover);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .tag.source {
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--accent-blue);
+        }
+
+        .tag.language {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--accent-green);
+        }
+
+        .tag.category {
+            background: rgba(139, 92, 246, 0.15);
+            color: var(--accent-purple);
+        }
+
+        .card-links {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: var(--bg-hover);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .card-link:hover {
+            background: var(--accent-blue);
+            color: white;
+        }
+
+        /* Commentary */
+        .commentary {
+            background: var(--bg-hover);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 16px;
+            border-left: 4px solid var(--accent-cyan);
+        }
+
+        .commentary-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: var(--accent-cyan);
+        }
+
+        .commentary-text {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .commentary-investor {
+            border-left-color: var(--accent-green);
+        }
+
+        .commentary-investor .commentary-header {
+            color: var(--accent-green);
+        }
+
+        .commentary-researcher {
+            border-left-color: var(--accent-purple);
+        }
+
+        .commentary-researcher .commentary-header {
+            color: var(--accent-purple);
+        }
+
+        .commentary-founder {
+            border-left-color: var(--accent-orange);
+        }
+
+        .commentary-founder .commentary-header {
+            color: var(--accent-orange);
+        }
+
+        .commentary-multi {
+            border-left-color: var(--accent-pink);
+        }
+
+        .commentary-multi .commentary-header {
+            color: var(--accent-pink);
+        }
+
+        .follow-up-context {
+            background: rgba(245, 158, 11, 0.1);
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-bottom: 16px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            border-left: 3px solid #f59e0b;
+        }
+
+        /* GitHub Card Specific */
+        .github-stats {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .github-stat {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .github-stat svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* arXiv Card Specific */
+        .arxiv-authors {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        .arxiv-abstract {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        /* Summary Section */
+        .summary-section {
+            background: var(--gradient-1);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 48px 0;
+            color: white;
+        }
+
+        .summary-section h2 {
+            font-size: 1.75rem;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .summary-content {
+            font-size: 1rem;
+            line-height: 1.9;
+            opacity: 0.95;
+        }
+
+        .summary-content p {
+            margin-bottom: 16px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.05s; }
+        .card:nth-child(2) { animation-delay: 0.1s; }
+        .card:nth-child(3) { animation-delay: 0.15s; }
+        .card:nth-child(4) { animation-delay: 0.2s; }
+        .card:nth-child(5) { animation-delay: 0.25s; }
+        .card:nth-child(6) { animation-delay: 0.3s; }
+        .card:nth-child(7) { animation-delay: 0.35s; }
+        .card:nth-child(8) { animation-delay: 0.4s; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .card-header {
+                flex-direction: column;
+            }
+
+            .section-header {
+                flex-wrap: wrap;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .summary-section {
+                padding: 24px;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection */
+        ::selection {
+            background: var(--accent-blue);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">🤖</div>
+                    <span>AI Digest Daily</span>
+                </div>
+                <div class="header-actions">
+                    <nav class="nav-links">
+                        <a href="#news" class="nav-link">热点</a>
+                        <a href="#github" class="nav-link">GitHub</a>
+                        <a href="#arxiv" class="nav-link">arXiv</a>
+                        <a href="#summary" class="nav-link">总结</a>
+                    </nav>
+                    <button class="theme-toggle" onclick="toggleTheme()" title="切换主题">
+                        <span id="theme-icon">🌙</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-date">
+                <span>📅</span>
+                <span>2026年3月21日 星期六</span>
+            </div>
+            <h1>AI 每日资讯速递</h1>
+            <p class="hero-subtitle">由 QoderWork 自动生成，汇集全球 AI 领域最新动态、GitHub 热门项目与 arXiv 前沿论文</p>
+        </section>
+
+        <!-- 行业热点 -->
+        <section id="news">
+            <div class="section-header">
+                <div class="section-icon news">🔥</div>
+                <h2 class="section-title">行业热点</h2>
+            </div>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3 class="card-title">OpenAI 收购 Python 工具商 Astral，加码 AI 编程工具市场</h3>
+                    <div class="card-number">1</div>
+                </div>
+                <p class="card-summary">OpenAI 宣布收购 Python 工具开发商 Astral，将 Astral 的开发者工具套件整合进 OpenAI 的 AI 编程系统 Codex。OpenAI 表示 Codex 目前已拥有超过 200 万周活跃用户，自年初以来用户数增长 3 倍，使用量增长 5 倍。Astral 创始人 Charlie Marsh 承诺交易完成后将继续支持开源工具。</p>
+                <div class="card-meta">
+                    <span class="tag source">Reuters</span>
+                    <span class="tag source">TechCrunch</span>
+                </div>
+                <div class="card-links">
+                    <a href="https://www.reuters.com/technology/openai-buy-python-toolmaker-astral-take-anthropic-2026-03-19/" class="card-link" target="_blank">Reuters ↗</a>
+                </div>
+                <div class="commentary commentary-investor">
+                    <div class="commentary-header">
+                        <span>💰</span>
+                        <span>投资人视角</span>
+                    </div>
+                    <p class="commentary-text">200 万周活用户、3 倍增长——这些数字说明 AI 编程工具正在从"极客玩具"变成"主流生产力工具"。OpenAI 收购 Astral 不是要买技术，而是要买开发者生态。Astral 在 Python 社区的影响力是 Codex 对抗 Claude Code 的关键筹码。更深层信号是：OpenAI 正在把战场从"模型能力"转移到"开发者心智"，这是成熟市场的典型打法。</p>
+                </div>
+            </article>
+
+            <article class="card card-follow-up">
+                <div class="follow-up-badge">
+                    <span>🔄</span>
+                    <span>连续跟踪</span>
+                </div>
+                <div class="card-header">
+                    <h3 class="card-title">五角大楼与 Anthropic 关系生变，特朗普政府要求弃用 Claude</h3>
+                    <div class="card-number">2</div>
+                </div>
+                <div class="follow-up-context">
+                    <strong>前情提要：</strong>3/19 报道了美国国防部长 Hegseth 希望五角大楼弃用 Anthropic 的 Claude，今日事态进一步升级，法院文件显示双方分歧严重。
+                </div>
+                <p class="card-summary">最新法院文件显示，五角大楼曾告知 Anthropic 双方"几乎达成一致"，但一周后特朗普却宣布关系"彻底破裂"。美国国防部正式表态称 Anthropic 的"红线"使其成为"国家安全的不可接受风险"。与此同时，五角大楼备忘录显示将采纳 Palantir 的 AI 系统作为核心军事系统。</p>
+                <div class="card-meta">
+                    <span class="tag source">TechCrunch</span>
+                    <span class="tag source">Reuters</span>
+                </div>
+                <div class="card-links">
+                    <a href="https://techcrunch.com/2026/03/20/new-court-filing-reveals-pentagon-told-anthropic-the-two-sides-were-nearly-aligned-a-week-after-trump-declared-the-relationship-kaput/" class="card-link" target="_blank">TechCrunch ↗</a>
+                </div>
+                <div class="commentary commentary-multi">
+                    <div class="commentary-header">
+                        <span>🎯</span>
+                        <span>多角度综合视角</span>
+                    </div>
+                    <p class="commentary-text"><strong>💰 投资人视角：</strong>Anthropic 3800 亿美元估值中，政府合同本是重要支撑。失去五角大楼意味着其商业化路径必须更依赖企业市场，竞争压力陡增。Palantir 接棒是意料之中——Thiel 与政府的深度绑定一直是其核心竞争力。<br><br><strong>🔬 科研工作者视角：</strong>所谓"红线"很可能涉及 AI 安全研究中的某些原则性立场（如可解释性、对齐研究）。这揭示了一个深层矛盾：最前沿的 AI 安全研究可能与政府的安全需求存在结构性冲突。<br><br><strong>🚀 创业者视角：</strong>政府市场看起来诱人（合同大、周期长），但政治风险极高。一个换届就可能让数年的合规投入归零。对于 AI 创业公司，"政商分离"可能是更稳健的策略。</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Jeff Bezos 计划募资 1000 亿美元收购并 AI 改造传统制造企业</h3>
+                    <div class="card-number">3</div>
+                </div>
+                <p class="card-summary">据 WSJ 报道，亚马逊创始人 Jeff Bezos 正计划募资 1000 亿美元，用于收购传统制造企业并用 AI 技术改造。这一计划将瞄准美国本土的老旧制造业公司，通过 AI 提升效率、降低成本，重塑美国制造业竞争力。</p>
+                <div class="card-meta">
+                    <span class="tag source">WSJ</span>
+                    <span class="tag source">TechCrunch</span>
+                </div>
+                <div class="commentary commentary-investor">
+                    <div class="commentary-header">
+                        <span>💰</span>
+                        <span>投资人视角</span>
+                    </div>
+                    <p class="commentary-text">1000 亿美元是什么概念？相当于再造半个伯克希尔·哈撒韦。Bezos 看中的不是制造业本身，而是"AI 改造"的套利空间——传统制造业估值低迷，但 AI 可以释放的效率提升空间巨大。这是典型的"捡烟蒂+赋能"策略。但制造业的复杂性远超电商，AI 改造能否兑现承诺，需要打一个大大的问号。</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Cloudflare CEO 预测：2027 年机器人流量将超过人类流量</h3>
+                    <div class="card-number">4</div>
+                </div>
+                <p class="card-summary">Cloudflare CEO Matthew Prince 公开表示，预计到 2027 年，互联网上的机器人流量将超过人类流量。AI Agent 的爆发式增长正在重塑互联网流量结构，这对内容安全、广告经济和网络基础设施都提出了全新挑战。</p>
+                <div class="card-meta">
+                    <span class="tag source">TechCrunch</span>
+                </div>
+                <div class="card-links">
+                    <a href="https://techcrunch.com/2026/03/19/online-bot-traffic-will-exceed-human-traffic-by-2027-cloudflare-ceo-says/" class="card-link" target="_blank">TechCrunch ↗</a>
+                </div>
+                <div class="commentary commentary-multi">
+                    <div class="commentary-header">
+                        <span>🎯</span>
+                        <span>多角度综合视角</span>
+                    </div>
+                    <p class="commentary-text"><strong>💰 投资人视角：</strong>机器人流量超过人类，意味着"为人类设计的互联网"正在变成"为 AI 设计的互联网"。这对广告科技公司是致命打击——如果点击都来自机器人，广告价值何在？但对 Cloudflare 这类基础设施公司是利好，因为机器人检测和流量清洗的需求将爆发。<br><br><strong>🚀 创业者视角：</strong>当互联网变成"AI 对 AI"的世界，人机交互界面需要重新设计。未来的 SaaS 产品可能需要同时服务"人类用户"和"AI Agent"两种客户端，这是全新的产品范式。</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3 class="card-title">WordPress.com 开放 AI Agent 自动写作与发布功能</h3>
+                    <div class="card-number">5</div>
+                </div>
+                <p class="card-summary">WordPress.com 宣布推出新功能，允许 AI Agent 直接在平台上撰写并发布文章。这一功能将大幅降低内容创作的门槛，同时也引发了关于内容质量和真实性的讨论。</p>
+                <div class="card-meta">
+                    <span class="tag source">TechCrunch</span>
+                </div>
+                <div class="card-links">
+                    <a href="https://techcrunch.com/2026/03/20/wordpress-com-now-lets-ai-agents-write-and-publish-posts-and-more/" class="card-link" target="_blank">TechCrunch ↗</a>
+                </div>
+                <div class="commentary commentary-founder">
+                    <div class="commentary-header">
+                        <span>🚀</span>
+                        <span>创业者视角</span>
+                    </div>
+                    <p class="commentary-text">WordPress 这一举动标志着"AI 原生内容平台"时代的开启。当 AI 可以自动生产、自动发布、自动分发内容，内容产业的格局将被彻底重写。创业者应该思考：在一个人机内容难以区分的时代，"真实"和"原创"的价值会如何重构？新的商业模式可能不是卖内容，而是卖"可信度认证"。</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3 class="card-title">特朗普政府发布 AI 政策框架，试图 preempt 州级法规</h3>
+                    <div class="card-number">6</div>
+                </div>
+                <p class="card-summary">特朗普政府发布国家 AI 政策框架，目标是让国会通过联邦层面的 AI 法规，以 preempt（优先于）各州的分散立法。框架同时将儿童安全责任转移给家长，减轻平台的监管负担。</p>
+                <div class="card-meta">
+                    <span class="tag source">TechCrunch</span>
+                    <span class="tag source">Reuters</span>
+                </div>
+                <div class="commentary commentary-investor">
+                    <div class="commentary-header">
+                        <span>💰</span>
+                        <span>投资人视角</span>
+                    </div>
+                    <p class="commentary-text">联邦统一法规对 AI 公司是利好——合规成本从"50 套标准"变成"1 套标准"。但"儿童安全责任转移给家长"的条款值得警惕：这可能为未来的监管反弹埋下伏笔。一旦出现问题，舆论压力可能迫使政策 180 度转弯。对于投资者，AI 监管风险远未解除，只是从"州级碎片化"变成了"联邦不确定性"。</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3 class="card-title">NVIDIA 与 Amazon 签署协议：2027 年底前交付 100 万颗芯片</h3>
+                    <div class="card-number">7</div>
+                </div>
+                <p class="card-summary">NVIDIA 与 Amazon 达成协议，将在 2027 年底前向 Amazon 交付 100 万颗 AI 芯片，用于 AWS 云基础设施。这是 NVIDIA 有史以来最大的单笔芯片订单之一，进一步巩固了其在 AI 算力市场的统治地位。</p>
+                <div class="card-meta">
+                    <span class="tag source">Reuters</span>
+                </div>
+                <div class="card-links">
+                    <a href="https://www.reuters.com/business/retail-consumer/nvidia-sell-1-million-chips-amazon-by-end-2027-cloud-deal-2026-03-19/" class="card-link" target="_blank">Reuters ↗</a>
+                </div>
+                <div class="commentary commentary-investor">
+                    <div class="commentary-header">
+                        <span>💰</span>
+                        <span>投资人视角</span>
+                    </div>
+                    <p class="commentary-text">100 万颗芯片、两年交付期——这意味着 NVIDIA 未来两年的产能已经有相当比例被锁定。对于竞争对手（AMD、Intel、自研芯片的云厂商）来说，窗口期正在关闭。但这也埋下了风险：如果 AI 需求在 2027 年前出现周期性下滑，NVIDIA 将面临产能过剩的压力。半导体行业的周期性从未消失，只是被 AI 的狂热暂时掩盖了。</p>
+                </div>
+            </article>
+        </section>
+
+        <!-- GitHub Trending -->
+        <section id="github">
+            <div class="section-header">
+                <div class="section-icon github">🚀</div>
+                <h2 class="section-title">GitHub Trending</h2>
+            </div>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Higress - AI 原生 API 网关</h3>
+                    <div class="card-number">1</div>
+                </div>
+                <div class="github-stats">
+                    <div class="github-stat">
+                        <svg fill="currentColor" viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg>
+                        <span>7,852 stars (+13 today)</span>
+                    </div>
+                    <div class="github-stat">
+                        <span class="tag language">Go</span>
+                    </div>
+                </div>
+                <p class="card-summary">AI Gateway | AI Native API Gateway。专为 AI 应用场景优化，支持 LLM 路由、Token 级别的流量控制、多模型负载均衡、AI 可观测性等功能。</p>
+                <div class="card-links">
+                    <a href="https://github.com/alibaba/higress" class="card-link" target="_blank">GitHub ↗</a>
+                </div>
+                <div class="commentary commentary-founder">
+                    <div class="commentary-header">
+                        <span>🚀</span>
+                        <span>创业者视角</span>
+                    </div>
+                    <p class="commentary-text">连续第四天登上 Trending，说明 AI 基础设施的需求是真实且持续的。Higress 的定位精准——不做模型、不做应用，做 AI 时代的"管道"。Token 级别的流控、多模型路由这些功能，正是企业客户从"AI 试点"走向"AI 生产"的刚需。对于创业者，这是一个重要信号：AI 应用层的竞争已经白热化，但基础设施层仍有大量机会。</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Fay - 数字人与 LLM Agent 框架</h3>
+                    <div class="card-number">2</div>
+                </div>
+                <div class="github-stats">
+                    <div class="github-stat">
+                        <svg fill="currentColor" viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg>
+                        <span>12,554 stars (+10 today)</span>
+                    </div>
+                    <div class="github-stat">
+                        <span class="tag language">Python</span>
+                    </div>
+                </div>
+                <p class="card-summary">Fay 是一个帮助数字人（2.5d、3d、移动、pc、网页）或大语言模型（OpenAI 兼容、DeepSeek）连通业务系统的 Agent 框架。</p>
+                <div class="card-links">
+                    <a href="https://github.com/xszyou/Fay" class="card-link" target="_blank">GitHub ↗</a>
+                </div>
+                <div class="commentary commentary-founder">
+                    <div class="commentary-header">
+                        <span>🚀</span>
+                        <span>创业者视角</span>
+                    </div>
+                    <p class="commentary-text">Fay 连续多日上榜，数字人+LLM 的组合在中国市场持续升温。直播带货、智能客服、虚拟教育——每一个场景都是真金白银的需求。Fay 的价值在于降低了数字人接入的技术门槛，让业务团队可以专注于内容和运营而非工程实现。但创业者需要警惕：数字人的"形式感"是否真的能带来业务价值，还是只是噱头？</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3 class="card-title">soybean-admin - Vue3 后台管理模板</h3>
+                    <div class="card-number">3</div>
+                </div>
+                <div class="github-stats">
+                    <div class="github-stat">
+                        <svg fill="currentColor" viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg>
+                        <span>14,037 stars (+16 today)</span>
+                    </div>
+                    <div class="github-stat">
+                        <span class="tag language">TypeScript</span>
+                    </div>
+                </div>
+                <p class="card-summary">一个清新优雅、高颜值且功能强大的后台管理模板，基于 Vue3、Vite7、TypeScript、Pinia、NaiveUI 和 UnoCSS。</p>
+                <div class="card-links">
+                    <a href="https://github.com/soybeanjs/soybean-admin" class="card-link" target="_blank">GitHub ↗</a>
+                </div>
+                <div class="commentary commentary-founder">
+                    <div class="commentary-header">
+                        <span>🚀</span>
+                        <span>创业者视角</span>
+                    </div>
+                    <p class="commentary-text">后台管理模板是开发者工具领域的"常青树"。soybean-admin 的技术栈选择（Vue3 + Vite + TypeScript）紧跟前端潮流，NaiveUI 提供了不错的视觉体验。16 个今日新增 star 显示其社区活跃度健康。对于做 AI 应用的团队，这类成熟的管理后台模板可以节省大量前端开发时间。</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3 class="card-title">JeecgBoot - AI 驱动的低代码开发平台</h3>
+                    <div class="card-number">4</div>
+                </div>
+                <div class="github-stats">
+                    <div class="github-stat">
+                        <svg fill="currentColor" viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg>
+                        <span>45,477 stars (+18 today)</span>
+                    </div>
+                    <div class="github-stat">
+                        <span class="tag language">Java</span>
+                    </div>
+                </div>
+                <p class="card-summary">JeecgBoot 是一款 AI 驱动的低代码开发平台，提供"零代码"与"代码生成"双模式，内置 AI 聊天助手、AI 大模型、知识库、AI 流程编排、MCP 与插件体系。</p>
+                <div class="card-links">
+                    <a href="https://github.com/jeecgboot/JeecgBoot" class="card-link" target="_blank">GitHub ↗</a>
+                </div>
+                <div class="commentary commentary-founder">
+                    <div class="commentary-header">
+                        <span>🚀</span>
+                        <span>创业者视角</span>
+                    </div>
+                    <p class="commentary-text">低代码 + AI 是一个被低估的组合。传统低代码平台的痛点是"灵活性不足"，而 AI 可以填补这个缺口——用自然语言描述需求，AI 生成代码，低代码平台负责部署。JeecgBoot 的 4.5 万 star 说明它已经在企业级市场建立了口碑。支持 MCP（Model Context Protocol）是明智之举，这意味着它可以接入任何兼容的 AI 模型。</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3 class="card-title">D2L-zh - 动手学深度学习</h3>
+                    <div class="card-number">5</div>
+                </div>
+                <div class="github-stats">
+                    <div class="github-stat">
+                        <svg fill="currentColor" viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg>
+                        <span>76,353 stars (+41 today)</span>
+                    </div>
+                    <div class="github-stat">
+                        <span class="tag language">Python</span>
+                    </div>
+                </div>
+                <p class="card-summary">《动手学深度学习》：面向中文读者、能运行、可讨论。中英文版被 70 多个国家的 500 多所大学用于教学。</p>
+                <div class="card-links">
+                    <a href="https://github.com/d2l-ai/d2l-zh" class="card-link" target="_blank">GitHub ↗</a>
+                </div>
+                <div class="commentary commentary-multi">
+                    <div class="commentary-header">
+                        <span>🎯</span>
+                        <span>多角度综合视角</span>
+                    </div>
+                    <p class="commentary-text">作为 AI 教育的标杆项目，D2L-zh 的持续热度说明深度学习的人才需求仍在高位。500+ 大学采用这个数据很惊人——它实际上定义了一代 AI 工程师的知识体系。今日 41 个新增 star 显示其社区活跃度依然强劲。这个项目的长尾价值在于它培养的用户会成为各种 AI 工具的潜在采用者。</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3 class="card-title">RapidOCR - 多平台 OCR 工具包</h3>
+                    <div class="card-number">6</div>
+                </div>
+                <div class="github-stats">
+                    <div class="github-stat">
+                        <svg fill="currentColor" viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg>
+                        <span>6,148 stars (+5 today)</span>
+                    </div>
+                    <div class="github-stat">
+                        <span class="tag language">Python</span>
+                    </div>
+                </div>
+                <p class="card-summary">基于 ONNXRuntime、OpenVINO、MNN、PaddlePaddle 和 PyTorch 的 OCR 多编程语言工具包。</p>
+                <div class="card-links">
+                    <a href="https://github.com/RapidAI/RapidOCR" class="card-link" target="_blank">GitHub ↗</a>
+                </div>
+                <div class="commentary commentary-founder">
+                    <div class="commentary-header">
+                        <span>🚀</span>
+                        <span>创业者视角</span>
+                    </div>
+                    <p class="commentary-text">RapidOCR 的核心竞争力在于"多推理后端支持"——ONNXRuntime 用于通用场景，OpenVINO 针对 Intel 芯片优化，MNN 面向移动端，PaddlePaddle 适合中文场景。这种架构设计让它可以灵活适配各种部署环境。OCR 作为 AI 落地的"低 hanging fruit"，在企业文档数字化、RPA 等场景需求稳定。</p>
+                </div>
+            </article>
+        </section>
+
+        <!-- arXiv Papers -->
+        <section id="arxiv">
+            <div class="section-header">
+                <div class="section-icon arxiv">📄</div>
+                <h2 class="section-title">arXiv 前沿论文</h2>
+            </div>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3 class="card-title">F2LLM-v2：面向多语言世界的包容性、高性能、高效 Embedding 模型</h3>
+                    <div class="card-number">1</div>
+                </div>
+                <p class="arxiv-authors">Ziyin Zhang, Zihan Liao, Hang Yu, Peng Di, Rui Wang</p>
+                <div class="card-meta">
+                    <span class="tag category">cs.CL</span>
+                    <span class="tag category">cs.AI</span>
+                    <span class="tag source">arXiv:2603.19223</span>
+                </div>
+                <p class="arxiv-abstract">我们推出 F2LLM-v2，一系列通用多语言 Embedding 模型，包含从 80M 到 14B 共 8 种不同规模。模型基于新整理的 6000 万公开高质量数据样本训练，支持超过 200 种语言，特别关注此前服务不足的中低资源语言。广泛评估证实 F2LLM-v2-14B 在 11 个 MTEB 基准上排名第一，而较小的模型也为资源受限应用树立了新的 SOTA。</p>
+                <div class="card-links">
+                    <a href="https://arxiv.org/pdf/2603.19223v1" class="card-link" target="_blank">PDF ↗</a>
+                </div>
+                <div class="commentary commentary-researcher">
+                    <div class="commentary-header">
+                        <span>🔬</span>
+                        <span>科研工作者视角</span>
+                    </div>
+                    <p class="commentary-text">多语言 Embedding 一直是被忽视的领域——大多数模型以英语为中心，其他语言只是"附带支持"。F2LLM-v2 明确将中低资源语言作为重点，这是负责任的研究方向。Matryoshka 学习 + 模型剪枝 + 知识蒸馏的组合策略，让不同规模的模型都能找到效率与性能的最佳平衡点。对于需要多语言支持的企业应用，这个模型家族提供了从边缘设备到数据中心的完整覆盖。</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Spectrally-Guided Diffusion Noise Schedules：基于频谱的扩散噪声调度</h3>
+                    <div class="card-number">2</div>
+                </div>
+                <p class="arxiv-authors">Carlos Esteves, Ameesh Makadia</p>
+                <div class="card-meta">
+                    <span class="tag category">cs.CV</span>
+                    <span class="tag category">cs.LG</span>
+                    <span class="tag source">arXiv:2603.19222</span>
+                </div>
+                <p class="arxiv-abstract">本文提出一种基于图像频谱特性为像素级扩散设计每实例噪声调度的原则性方法。通过推导最小和最大噪声水平有效性的理论界限，我们设计了"紧致"噪声调度来消除冗余步骤。实验表明，我们的噪声调度提升了单阶段像素扩散模型的生成质量，尤其在低步数场景下。</p>
+                <div class="card-links">
+                    <a href="https://arxiv.org/pdf/2603.19222v1" class="card-link" target="_blank">PDF ↗</a>
+                </div>
+                <div class="commentary commentary-researcher">
+                    <div class="commentary-header">
+                        <span>🔬</span>
+                        <span>科研工作者视角</span>
+                    </div>
+                    <p class="commentary-text">噪声调度一直是扩散模型的"黑魔法"——经验性很强，理论指导不足。这篇论文从频谱分析的角度给出了理论框架，并推导出最小/最大噪声水平的有效界限。"紧致噪声调度"的概念很有工程价值：消除冗余步骤意味着更快的推理速度。对于需要实时生成的应用场景（如交互式图像编辑），这种优化可能带来质变。</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Online Learning and Equilibrium Computation with Ranking Feedback</h3>
+                    <div class="card-number">3</div>
+                </div>
+                <p class="arxiv-authors">Mingyang Liu, Yongshan Chen, Zhiyuan Fan, Gabriele Farina, Asuman Ozdaglar, Kaiqing Zhang</p>
+                <div class="card-meta">
+                    <span class="tag category">cs.LG</span>
+                    <span class="tag category">cs.CL</span>
+                    <span class="tag source">arXiv:2603.19221</span>
+                </div>
+                <p class="arxiv-abstract">本文研究一种在线学习模型，学习者每轮只观察到一组候选动作的排序。我们考虑了两种排序机制：基于当前轮次瞬时效用的排序，和基于截至当前轮次时间平均效用的排序。使用标准的外部遗憾度量，我们证明了在一般情况下，基于瞬时效用排序反馈无法实现次线性遗憾。</p>
+                <div class="card-links">
+                    <a href="https://arxiv.org/pdf/2603.19221v1" class="card-link" target="_blank">PDF ↗</a>
+                </div>
+                <div class="commentary commentary-researcher">
+                    <div class="commentary-header">
+                        <span>🔬</span>
+                        <span>科研工作者视角</span>
+                    </div>
+                    <p class="commentary-text">排序反馈比数值反馈更符合人类决策习惯——我们通常更容易说"A 比 B 好"而不是"A 比 B 好 3.5 分"。这篇论文的理论贡献在于刻画了排序反馈下的学习界限：什么时候可行，什么时候不可行。对于 LLM 对齐研究（如 RLHF），这篇论文可能提供新的理论工具——人类反馈通常以排序形式给出（如"回答 A 比回答 B 更好"）。</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3 class="card-title">SAMA：基于因子化解耦语义锚定与运动对齐的指令引导视频编辑</h3>
+                    <div class="card-number">4</div>
+                </div>
+                <p class="arxiv-authors">Xinyao Zhang, Wenkai Dong, Yuxin Song, Bo Fang, Qi Zhang, Jing Wang, Fan Chen, Hui Zhang, Haocheng Feng, Yu Lu, Hang Zhou, Chun Yuan, Jingdong Wang</p>
+                <div class="card-meta">
+                    <span class="tag category">cs.CV</span>
+                    <span class="tag source">arXiv:2603.19228</span>
+                </div>
+                <p class="arxiv-abstract">我们提出 SAMA（因子化解耦语义锚定与运动对齐），将视频编辑分解为语义锚定和运动建模。首先，语义锚定通过在稀疏锚定帧上联合预测语义 token 和视频潜变量来建立可靠的视觉锚点。其次，运动对齐在相同的骨干网络上预训练运动中心的视频恢复前置任务，使模型直接从原始视频中内化时间动态。SAMA 在开源模型中达到 SOTA 性能，与领先的商业系统具有竞争力。</p>
+                <div class="card-links">
+                    <a href="https://arxiv.org/pdf/2603.19228v1" class="card-link" target="_blank">PDF ↗</a>
+                </div>
+                <div class="commentary commentary-researcher">
+                    <div class="commentary-header">
+                        <span>🔬</span>
+                        <span>科研工作者视角</span>
+                    </div>
+                    <p class="commentary-text">视频编辑的核心矛盾是"变与不变"——改变语义内容但保持运动连贯。SAMA 的因子化解耦思路很优雅：把问题拆成"语义规划"和"运动保持"两个子问题分别解决。特别值得注意的是"零样本视频编辑能力"——预训练阶段不需要配对的视频-指令编辑数据，这大大降低了对昂贵标注数据的依赖。对于视频生成领域的研究者，这种"解耦+预训练"的范式值得借鉴。</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3 class="card-title">EffectErase：联合视频对象移除与插入的高质量效果擦除</h3>
+                    <div class="card-number">5</div>
+                </div>
+                <p class="arxiv-authors">Yang Fu, Yike Zheng, Ziyun Dai, Henghui Ding</p>
+                <div class="card-meta">
+                    <span class="tag category">cs.CV</span>
+                    <span class="tag source">arXiv:2603.19224</span>
+                </div>
+                <p class="arxiv-abstract">我们引入 VOR（Video Object Removal）数据集，包含 6 万对高质量视频，涵盖五种效果类型和广泛的对象类别。基于此，我们提出 EffectErase，一种效果感知的视频对象移除方法，将视频对象插入作为互惠学习方案中的逆辅助任务。模型包含任务感知区域引导，将学习聚焦于受影响区域；以及插入-移除一致性目标，鼓励互补行为和共享效果区域定位。</p>
+                <div class="card-links">
+                    <a href="https://arxiv.org/pdf/2603.19224v1" class="card-link" target="_blank">PDF ↗</a>
+                </div>
+                <div class="commentary commentary-researcher">
+                    <div class="commentary-header">
+                        <span>🔬</span>
+                        <span>科研工作者视角</span>
+                    </div>
+                    <p class="commentary-text">视频对象移除的难点不是"去掉物体"，而是"去掉物体留下的痕迹"——阴影、反射、形变等。EffectErase 的创新在于把"插入"作为"移除"的辅助任务，这种"互惠学习"的思路很有启发性。VOR 数据集的发布也是重要贡献，6 万对视频数据将推动这个领域的研究。对于影视后期制作，这项技术可能显著降低人工成本。</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3 class="card-title">DreamPartGen：基于协同潜去噪的语义 grounded 部件级 3D 生成</h3>
+                    <div class="card-number">6</div>
+                </div>
+                <p class="arxiv-authors">Tianjiao Yu, Xinzhuo Li, Muntasir Wahed, Jerry Xiong, Yifan Shen, Ying Shen, Ismini Lourentzou</p>
+                <div class="card-meta">
+                    <span class="tag category">cs.CV</span>
+                    <span class="tag category">cs.AI</span>
+                    <span class="tag source">arXiv:2603.19216</span>
+                </div>
+                <p class="arxiv-abstract">我们提出 DreamPartGen，一个用于语义 grounded、部件感知的文本到 3D 生成框架。DreamPartGen 引入双重部件潜变量（DPLs）联合建模每个部件的几何和外观，以及关系语义潜变量（RSLs）捕获从语言推导的部件间依赖关系。同步协同去噪过程强制执行互几何和语义一致性，实现连贯、可解释且文本对齐的 3D 合成。</p>
+                <div class="card-links">
+                    <a href="https://arxiv.org/pdf/2603.19216v1" class="card-link" target="_blank">PDF ↗</a>
+                </div>
+                <div class="commentary commentary-researcher">
+                    <div class="commentary-header">
+                        <span>🔬</span>
+                        <span>科研工作者视角</span>
+                    </div>
+                    <p class="commentary-text">3D 生成的下一个前沿是"结构化生成"——不是生成一个整体网格，而是生成有语义部件的 3D 对象。这对于机器人操作、CAD 设计、游戏资产制作等应用至关重要。DreamPartGen 的 DPL + RSL 双潜变量设计，让模型同时学习"部件是什么"和"部件如何关联"。协同去噪机制确保生成结果在几何和语义上都一致。这项工作可能推动 3D 生成从"视觉逼真"走向"功能可用"。</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3 class="card-title">AlphaEvolve 与 Gemini 3 Deep Think 协助证明数学定理</h3>
+                    <div class="card-number">7</div>
+                </div>
+                <p class="arxiv-authors">Dimitri Kanevsky, Julian Salazar, Matt Harvey</p>
+                <div class="card-meta">
+                    <span class="tag category">math.AG</span>
+                    <span class="tag category">cs.AI</span>
+                    <span class="tag source">arXiv:2603.19215</span>
+                </div>
+                <p class="arxiv-abstract">本文研究三次曲面上的 R-等价问题，证明了对于 2-adic 曲面和全 Eckardt 约化情形，R-等价是平凡的或指数为 2。对于显式情形，我们确认了平凡性：对角三次曲面 X³+Y³+Z³+ζ₃T³=0 在 Q₂(ζ₃) 上——回答了 Manin 自 1972 年提出的一个长期问题。这是一系列工作中的第一篇，源自与生成式 AI 模型（如 AlphaEvolve 和 Gemini 3 Deep Think）一年的交互，后者证明了我们的许多引理。</p>
+                <div class="card-links">
+                    <a href="https://arxiv.org/pdf/2603.19215v1" class="card-link" target="_blank">PDF ↗</a>
+                </div>
+                <div class="commentary commentary-researcher">
+                    <div class="commentary-header">
+                        <span>🔬</span>
+                        <span>科研工作者视角</span>
+                    </div>
+                    <p class="commentary-text">这是一篇具有历史意义的论文——它明确披露并致谢了 AI 模型（AlphaEvolve 和 Gemini 3 Deep Think）在证明过程中的贡献。AI 不再只是"辅助工具"，而是成为"合作者"。论文解决的数学问题本身也很重要：回答了 Manin 自 1972 年提出的长期问题。这标志着 AI 辅助数学研究进入新阶段：从"计算验证"走向"创造性证明"。对于数学界，如何评价和引用 AI 贡献将成为新的伦理议题。</p>
+                </div>
+            </article>
+        </section>
+
+        <!-- Summary -->
+        <section id="summary" class="summary-section">
+            <h2>📊 今日总结</h2>
+            <div class="summary-content">
+                <p>今天的 AI 领域呈现出几个值得关注的趋势：</p>
+                <p><strong>商业整合层面</strong>，OpenAI 收购 Astral、Bezos 的 1000 亿美元制造业改造计划，都指向同一个方向：AI 正在从"技术"变成"产业改造工具"。单纯的模型能力已经不够，必须深度嵌入垂直行业才能创造真实价值。</p>
+                <p><strong>地缘政治层面</strong>，五角大楼与 Anthropic 的决裂、特朗普政府 AI 政策框架的发布，显示 AI 监管正在从"州级碎片化"走向"联邦集中化"。对于 AI 公司，合规成本的结构将发生根本变化。</p>
+                <p><strong>技术演进层面</strong>，arXiv 上的论文显示多语言 Embedding、视频编辑、3D 生成等领域都在快速进步。特别值得注意的是 AlphaEvolve 和 Gemini 3 协助证明数学定理的论文——AI 正在从"工具"变成"合作者"。</p>
+                <p><strong>基础设施层面</strong>，Cloudflare 关于机器人流量将超过人类的预测，以及 NVIDIA 与 Amazon 的百万芯片订单，共同指向一个未来：互联网正在从"为人类设计"变成"为 AI 设计"。</p>
+                <p><strong>一句话总结：</strong>2026 年的 AI 行业，技术突破仍在继续，但商业整合、地缘政治和基础设施重构正在成为决定胜负的更重要变量。</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="footer-text">由 QoderWork 自动生成 | 数据截止至 2026-03-21</p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            const currentTheme = html.getAttribute('data-theme');
+            
+            if (currentTheme === 'light') {
+                html.removeAttribute('data-theme');
+                icon.textContent = '🌙';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.setAttribute('data-theme', 'light');
+                icon.textContent = '☀️';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+            document.getElementById('theme-icon').textContent = '☀️';
+        }
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll-based animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

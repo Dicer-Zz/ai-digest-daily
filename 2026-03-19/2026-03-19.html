@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 每日资讯速递 - 2026-03-19</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0f0f1a;
+            --bg-secondary: #1a1a2e;
+            --bg-card: #16162a;
+            --bg-hover: #252545;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b8;
+            --text-muted: #6b6b8a;
+            --accent-primary: #6366f1;
+            --accent-secondary: #8b5cf6;
+            --accent-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+            --border-color: #2a2a45;
+            --shadow-color: rgba(99, 102, 241, 0.15);
+            --success: #10b981;
+            --warning: #f59e0b;
+            --info: #3b82f6;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #fafafa;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --bg-hover: #f3f4f6;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --text-muted: #9ca3af;
+            --accent-primary: #4f46e5;
+            --accent-secondary: #7c3aed;
+            --accent-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #9333ea 100%);
+            --border-color: #e5e7eb;
+            --shadow-color: rgba(79, 70, 229, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            transition: var(--transition);
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(15, 15, 26, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        [data-theme="light"] .header {
+            background: rgba(250, 250, 250, 0.85);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 700;
+            font-size: 1.25rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--accent-gradient);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            -webkit-text-fill-color: white;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gradient);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+
+        .theme-toggle:hover {
+            background: var(--bg-hover);
+            color: var(--accent-primary);
+            transform: scale(1.05);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 140px 2rem 80px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 400px;
+            background: radial-gradient(ellipse, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-badge .pulse {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent-gradient);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        /* Main Content */
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .section-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-gradient);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+        }
+
+        .section-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Cards */
+        .cards-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent-gradient);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px var(--shadow-color);
+            border-color: var(--accent-primary);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            line-height: 1.4;
+            flex: 1;
+        }
+
+        .card-badge {
+            background: var(--bg-hover);
+            color: var(--accent-primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .card-source {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+        }
+
+        .card-source a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .card-source a:hover {
+            text-decoration: underline;
+        }
+
+        .card-summary {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+
+        .card-insight {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border-left: 4px solid var(--accent-primary);
+            padding: 1rem 1.25rem;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .card-insight-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .card-insight-label::before {
+            content: '💡';
+        }
+
+        .card-meta {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .card-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        /* GitHub Card Specific */
+        .github-card .card-header {
+            align-items: center;
+        }
+
+        .github-stats {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .github-stat {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--bg-hover);
+            padding: 0.4rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .github-stat.stars {
+            color: #fbbf24;
+        }
+
+        .github-stat.forks {
+            color: var(--accent-primary);
+        }
+
+        .github-lang {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .lang-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent-primary);
+        }
+
+        /* Paper Card Specific */
+        .paper-authors {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .paper-categories {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .paper-category {
+            background: var(--bg-hover);
+            color: var(--text-secondary);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        /* Summary Section */
+        .summary-section {
+            background: var(--accent-gradient);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .summary-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .summary-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .summary-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255,255,255,0.2);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .summary-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .summary-content {
+            font-size: 1rem;
+            line-height: 1.9;
+            opacity: 0.95;
+        }
+
+        .summary-content p {
+            margin-bottom: 1rem;
+        }
+
+        .summary-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-brand {
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 48px;
+            height: 48px;
+            background: var(--accent-gradient);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.25rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            box-shadow: 0 4px 20px var(--shadow-color);
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px var(--shadow-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 120px 1rem 60px;
+            }
+
+            .stats-bar {
+                gap: 1.5rem;
+                padding: 1.5rem 1rem;
+            }
+
+            .stat-value {
+                font-size: 1.5rem;
+            }
+
+            .main {
+                padding: 2rem 1rem;
+            }
+
+            .card {
+                padding: 1.25rem;
+            }
+
+            .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .github-stats {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .summary-section {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card {
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.05s; }
+        .card:nth-child(2) { animation-delay: 0.1s; }
+        .card:nth-child(3) { animation-delay: 0.15s; }
+        .card:nth-child(4) { animation-delay: 0.2s; }
+        .card:nth-child(5) { animation-delay: 0.25s; }
+        .card:nth-child(6) { animation-delay: 0.3s; }
+        .card:nth-child(7) { animation-delay: 0.35s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">🚀</div>
+                <span>AI Daily Digest</span>
+            </div>
+            <nav class="nav">
+                <div class="nav-links">
+                    <a href="#news" class="nav-link">行业热点</a>
+                    <a href="#github" class="nav-link">GitHub</a>
+                    <a href="#papers" class="nav-link">arXiv</a>
+                    <a href="#summary" class="nav-link">总结</a>
+                </div>
+                <button class="theme-toggle" onclick="toggleTheme()" title="切换主题">
+                    <span id="theme-icon">🌙</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-badge">
+            <span class="pulse"></span>
+            <span>实时更新</span>
+        </div>
+        <h1>AI 每日资讯速递 <span>2026.03.19</span></h1>
+        <p class="hero-subtitle">汇聚全球AI领域最新动态，深度解析行业趋势与前沿技术</p>
+        <div class="hero-date">
+            <span>📅</span>
+            <span>2026年3月19日</span>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="stat-item">
+            <div class="stat-value">6</div>
+            <div class="stat-label">行业热点</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value">7</div>
+            <div class="stat-label">GitHub项目</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value">7</div>
+            <div class="stat-label">前沿论文</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value">200K+</div>
+            <div class="stat-label">总Star数</div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Industry News Section -->
+        <section class="section" id="news">
+            <div class="section-header">
+                <div class="section-icon">🔥</div>
+                <div>
+                    <h2 class="section-title">行业热点</h2>
+                    <p class="section-desc">全球AI行业最新动态与重大事件</p>
+                </div>
+            </div>
+            <div class="cards-grid">
+                <article class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">微软发布2026年AI七大趋势预测</h3>
+                        <span class="card-badge">趋势预测</span>
+                    </div>
+                    <div class="card-source">
+                        <span>来源：</span>
+                        <a href="https://news.microsoft.com/source/features/ai/whats-next-in-ai-7-trends-to-watch-in-2026/" target="_blank">Microsoft Source</a>
+                    </div>
+                    <p class="card-summary">
+                        微软首席产品官Aparna Chennapragada领衔发布《2026年AI七大趋势》，核心观点包括：AI将从工具演变为合作伙伴；AI代理将获得新安全保障；AI有望缩小全球健康差距（微软MAI-DxO在复杂病例诊断中准确率达85.5%）；AI将成为研究过程的核心；AI基础设施更智能高效；AI学习代码及其上下文；量子计算进入"以年计"的突破期。
+                    </p>
+                    <div class="card-insight">
+                        <div class="card-insight-label">锐评</div>
+                        微软这份报告最值得关注的是"AI代理安全"被单独列为趋势——这意味着Agent已经从实验室走向生产环境，安全问题开始被严肃对待。另一个信号是量子计算被明确纳入AI基础设施讨论，混合计算架构可能成为下一个军备竞赛焦点。
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">腾讯宣布2026年AI投资至少翻倍</h3>
+                        <span class="card-badge">投资动态</span>
+                    </div>
+                    <div class="card-source">
+                        <span>来源：</span>
+                        <a href="https://finance.sina.com.cn/stock/estate/integration/2026-03-18/doc-inhrmihr9283932.shtml" target="_blank">新浪财经</a>
+                    </div>
+                    <p class="card-summary">
+                        腾讯总裁刘炽平在3月18日财报电话会上表示，2025年腾讯在AI新产品上投入180亿元，2026年预计至少翻倍。同时会增加资本开支获取算力支撑模型训练和推理，并有额外的算力对外租售。马化腾首次公开谈论"龙虾"（DeepSeek）对行业的影响。
+                    </p>
+                    <div class="card-insight">
+                        <div class="card-insight-label">锐评</div>
+                        腾讯这次表态释放了两个关键信号：一是算力对外租售意味着腾讯云要在AI基础设施领域与阿里云正面竞争；二是"龙虾"被马化腾亲自点名，说明DeepSeek的冲击已经让巨头不得不重新评估开源策略。投资翻倍但回购减少，腾讯正在用股东回报换取AI入场券。
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Google Gemini全面进军Workspace办公套件</h3>
+                        <span class="card-badge">产品更新</span>
+                    </div>
+                    <div class="card-source">
+                        <span>来源：</span>
+                        <a href="https://techcrunch.com/2026/03/10/google-rolls-out-new-gemini-capabilities-to-docs-sheets-slides-and-drive/" target="_blank">TechCrunch</a>
+                    </div>
+                    <p class="card-summary">
+                        Google于3月10日宣布为Workspace带来全新Gemini功能：Docs新增"Help me create"功能，可利用Gmail和Drive数据起草文档并匹配写作风格；Sheets支持通过提示词"拉取相关数据"构建电子表格；Drive搜索新增"AI Overview"概览。这些功能面向AI Ultra和Pro订阅者开放测试。
+                    </p>
+                    <div class="card-insight">
+                        <div class="card-insight-label">锐评</div>
+                        Google终于开始在生产力工具上发力，但"匹配写作风格"这个功能值得玩味——它意味着Gemini正在学习用户的个人表达习惯，这既是体验提升，也是数据收集的深化。更关键的是，Google把AI功能限制在付费订阅层，说明其正在从"广告模式"向"订阅模式"加速转型。
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Anthropic发布Claude Opus 4.6，专注编码与金融Agent</h3>
+                        <span class="card-badge">模型发布</span>
+                    </div>
+                    <div class="card-source">
+                        <span>来源：</span>
+                        <a href="https://www.cnbc.com/2026/02/05/anthropic-claude-opus-4-6-vibe-working.html" target="_blank">CNBC</a>
+                    </div>
+                    <p class="card-summary">
+                        Anthropic于2月5日发布Claude Opus 4.6，新模型在编码、长时间任务维持和高质量专业工作方面表现更佳，特别擅长规划、代码审查和调试，并在"Finance Agent benchmark"上位居榜首。Anthropic正在向"氛围工作"（vibe working）模式演进。
+                    </p>
+                    <div class="card-insight">
+                        <div class="card-insight-label">锐评</div>
+                        Claude Opus 4.6选择在Finance Agent benchmark上霸榜，这是Anthropic的精准卡位——金融是AI Agent变现能力最强的垂直领域之一。"vibe working"概念的提出也很有意思，暗示AI正在从"工具"向"协作者"身份转变。Anthropic 2026年开局凶猛，OpenAI的领先地位正在被蚕食。
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">MIT预测：2026年硅谷产品将更多基于中国开源大模型</h3>
+                        <span class="card-badge">行业趋势</span>
+                    </div>
+                    <div class="card-source">
+                        <span>来源：</span>
+                        <a href="https://www.technologyreview.com/2026/01/05/1130662/whats-next-for-ai-in-2026/" target="_blank">MIT Technology Review</a>
+                    </div>
+                    <p class="card-summary">
+                        MIT Technology Review预测2026年五大AI趋势：硅谷产品将更多基于中国开源大模型；美国监管陷入联邦与州博弈；聊天机器人重塑购物方式；大模型将助力重要新发现；相关法律诉讼将显著升温。
+                    </p>
+                    <div class="card-insight">
+                        <div class="card-insight-label">锐评</div>
+                        "硅谷产品基于中国开源模型"这个预测如果成真，将是AI地缘政治的转折点。DeepSeek已经证明了这一点——中国模型不再是"追赶者"，而是"定义者"。监管博弈和诉讼升温则暗示AI行业正在从"野蛮生长"进入"规则重构"阶段，2026年可能是AI合规成本激增的元年。
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">IBM预测：量子计算将在2026年超越经典计算机</h3>
+                        <span class="card-badge">技术预测</span>
+                    </div>
+                    <div class="card-source">
+                        <span>来源：</span>
+                        <a href="https://www.ibm.com/think/news/ai-tech-trends-predictions-2026" target="_blank">IBM Think</a>
+                    </div>
+                    <p class="card-summary">
+                        IBM专家预测2026年AI趋势：量子计算将在特定任务上超越经典计算机；硬件效率将成为新的扩展策略；AI模型将更加注重能效比优化。
+                    </p>
+                    <div class="card-insight">
+                        <div class="card-insight-label">锐评</div>
+                        IBM的预测一向偏保守，如果连IBM都说量子计算要超越经典计算机，那说明这个临界点真的近了。"硬件效率成为新扩展策略"是对英伟达GPU垄断的含蓄挑战——当算力成本成为瓶颈，算法优化和专用芯片的价值将被重估。
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- GitHub Section -->
+        <section class="section" id="github">
+            <div class="section-header">
+                <div class="section-icon">🚀</div>
+                <div>
+                    <h2 class="section-title">GitHub Trending</h2>
+                    <p class="section-desc">今日最热门的AI/ML开源项目</p>
+                </div>
+            </div>
+            <div class="cards-grid">
+                <article class="card github-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Fay - 数字人与LLM Agent框架</h3>
+                        <div class="github-stats">
+                            <span class="github-stat stars">⭐ 12,539</span>
+                            <span class="github-stat forks">🔱 2,250</span>
+                        </div>
+                    </div>
+                    <div class="card-source">
+                        <span class="github-lang"><span class="lang-dot"></span>Python</span>
+                        <span>|</span>
+                        <a href="https://github.com/xszyou/Fay" target="_blank">github.com/xszyou/Fay</a>
+                    </div>
+                    <p class="card-summary">
+                        Fay是一个帮助数字人（2.5d、3d、移动、pc、网页）或大语言模型（OpenAI兼容、DeepSeek）连通业务系统的Agent框架。
+                    </p>
+                    <div class="card-insight">
+                        <div class="card-insight-label">锐评</div>
+                        Fay的定位非常精准——它不做底层模型，而是做"最后一公里"的连接器。数字人+LLM的组合正在爆发，Fay的价值在于提供了标准化的接入层，让业务系统可以快速接入各种数字人形态。
+                    </div>
+                </article>
+
+                <article class="card github-card">
+                    <div class="card-header">
+                        <h3 class="card-title">D2L-zh - 动手学深度学习</h3>
+                        <div class="github-stats">
+                            <span class="github-stat stars">⭐ 76,285</span>
+                            <span class="github-stat forks">🔱 12,168</span>
+                        </div>
+                    </div>
+                    <div class="card-source">
+                        <span class="github-lang"><span class="lang-dot"></span>Python</span>
+                        <span>|</span>
+                        <a href="https://github.com/d2l-ai/d2l-zh" target="_blank">github.com/d2l-ai/d2l-zh</a>
+                    </div>
+                    <p class="card-summary">
+                        《动手学深度学习》：面向中文读者、能运行、可讨论。中英文版被70多个国家的500多所大学用于教学。
+                    </p>
+                    <div class="card-insight">
+                        <div class="card-insight-label">锐评</div>
+                        作为AI教育的标杆项目，D2L-zh的持续热度说明深度学习的人才需求仍在高位。500+大学采用这个数据很惊人——它实际上定义了一代AI工程师的知识体系。这个项目的长尾价值在于它培养的用户会成为各种AI工具的潜在采用者。
+                    </div>
+                </article>
+
+                <article class="card github-card">
+                    <div class="card-header">
+                        <h3 class="card-title">RapidOCR - 多平台OCR工具包</h3>
+                        <div class="github-stats">
+                            <span class="github-stat stars">⭐ 6,139</span>
+                            <span class="github-stat forks">🔱 599</span>
+                        </div>
+                    </div>
+                    <div class="card-source">
+                        <span class="github-lang"><span class="lang-dot"></span>Python</span>
+                        <span>|</span>
+                        <a href="https://github.com/RapidAI/RapidOCR" target="_blank">github.com/RapidAI/RapidOCR</a>
+                    </div>
+                    <p class="card-summary">
+                        基于ONNXRuntime、OpenVINO、MNN、PaddlePaddle和PyTorch的OCR多编程语言工具包。
+                    </p>
+                    <div class="card-insight">
+                        <div class="card-insight-label">锐评</div>
+                        RapidOCR的核心竞争力在于"多推理后端支持"——ONNXRuntime用于通用场景，OpenVINO针对Intel芯片优化，MNN面向移动端，PaddlePaddle适合中文场景。这种架构设计让它可以灵活适配各种部署环境。
+                    </div>
+                </article>
+
+                <article class="card github-card">
+                    <div class="card-header">
+                        <h3 class="card-title">kirara-ai - 多模态AI聊天机器人</h3>
+                        <div class="github-stats">
+                            <span class="github-stat stars">⭐ 18,580</span>
+                            <span class="github-stat forks">🔱 1,838</span>
+                        </div>
+                    </div>
+                    <div class="card-source">
+                        <span class="github-lang"><span class="lang-dot"></span>Python</span>
+                        <span>|</span>
+                        <a href="https://github.com/lss233/kirara-ai" target="_blank">github.com/lss233/kirara-ai</a>
+                    </div>
+                    <p class="card-summary">
+                        可DIY的多模态AI聊天机器人，快速接入微信、QQ、Telegram等平台，支持DeepSeek、Grok、Claude、Ollama、Gemini、OpenAI等模型，具备工作流系统、网页搜索、AI画图、语音对话等功能。
+                    </p>
+                    <div class="card-insight">
+                        <div class="card-insight-label">锐评</div>
+                        kirara-ai是典型的"AI缝合怪"项目，但它的价值恰恰在于"缝合"——把各种AI能力打包成一个可部署的机器人。支持多平台接入让它有很强的实用性。这类项目的热度反映了用户对"一站式AI助手"的需求。
+                    </div>
+                </article>
+
+                <article class="card github-card">
+                    <div class="card-header">
+                        <h3 class="card-title">chatgpt-on-wechat - 大模型超级AI助理</h3>
+                        <div class="github-stats">
+                            <span class="github-stat stars">⭐ 42,292</span>
+                            <span class="github-stat forks">🔱 9,840</span>
+                        </div>
+                    </div>
+                    <div class="card-source">
+                        <span class="github-lang"><span class="lang-dot"></span>Python</span>
+                        <span>|</span>
+                        <a href="https://github.com/zhayujie/chatgpt-on-wechat" target="_blank">github.com/zhayujie/chatgpt-on-wechat</a>
+                    </div>
+                    <p class="card-summary">
+                        CowAgent是基于大模型的超级AI助理，能主动思考和任务规划、访问操作系统和外部资源、创造和执行Skills、拥有长期记忆并不断成长。支持飞书、钉钉、企微、QQ、微信公众号、网页等接入。
+                    </p>
+                    <div class="card-insight">
+                        <div class="card-insight-label">锐评</div>
+                        42K star说明这个项目已经成为国内AI Bot的事实标准。最新版本强调"主动思考"和"任务规划"，正在从简单的"问答机器人"向"Agent"演进。支持企业微信、钉钉、飞书三大办公平台，说明其商业化路径清晰——做企业的"数字员工"。
+                    </div>
+                </article>
+
+                <article class="card github-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Umi-OCR - 开源离线OCR软件</h3>
+                        <div class="github-stats">
+                            <span class="github-stat stars">⭐ 42,643</span>
+                            <span class="github-stat forks">🔱 4,211</span>
+                        </div>
+                    </div>
+                    <div class="card-source">
+                        <span class="github-lang"><span class="lang-dot"></span>Python</span>
+                        <span>|</span>
+                        <a href="https://github.com/hiroi-sora/Umi-OCR" target="_blank">github.com/hiroi-sora/Umi-OCR</a>
+                    </div>
+                    <p class="card-summary">
+                        开源、免费的离线OCR软件。支持截屏/批量导入图片、PDF文档识别、排除水印/页眉页脚、扫描/生成二维码，内置多国语言库。
+                    </p>
+                    <div class="card-insight">
+                        <div class="card-insight-label">锐评</div>
+                        Umi-OCR的"离线"特性是其核心竞争力——在数据隐私日益敏感的今天，本地运行的OCR工具对企业和个人用户都有吸引力。42K star说明它已经超越了"小众工具"的范畴。支持PDF识别和二维码生成，让它从单纯的"识别工具"扩展为"文档处理套件"。
+                    </div>
+                </article>
+
+                <article class="card github-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Alibaba Higress - AI原生API网关</h3>
+                        <div class="github-stats">
+                            <span class="github-stat stars">⭐ 7,828</span>
+                            <span class="github-stat forks">🔱 1,034</span>
+                        </div>
+                    </div>
+                    <div class="card-source">
+                        <span class="github-lang"><span class="lang-dot" style="background: #00ADD8;"></span>Go</span>
+                        <span>|</span>
+                        <a href="https://github.com/alibaba/higress" target="_blank">github.com/alibaba/higress</a>
+                    </div>
+                    <p class="card-summary">
+                        AI Gateway | AI Native API Gateway。为AI Agent和LLM应用提供流式响应、长连接、模型路由等能力的新一代API网关。
+                    </p>
+                    <div class="card-insight">
+                        <div class="card-insight-label">锐评</div>
+                        Higress的定位是"AI原生API网关"，这是阿里云在AI基础设施领域的重要布局。随着AI Agent和LLM应用的爆发，传统的API网关已经无法满足新需求。Higress的AI Gateway定位瞄准了这个空白市场。
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- arXiv Section -->
+        <section class="section" id="papers">
+            <div class="section-header">
+                <div class="section-icon">📄</div>
+                <div>
+                    <h2 class="section-title">arXiv 前沿论文</h2>
+                    <p class="section-desc">最新发表的AI/ML研究论文精选</p>
+                </div>
+            </div>
+            <div class="cards-grid">
+                <article class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">AgentFactory: 通过可执行子代理积累与重用的自我进化框架</h3>
+                        <span class="card-badge">Agent</span>
+                    </div>
+                    <div class="paper-authors">Zhang Zhang, Shuqi Lu, Hongjin Qian, Di He, Zheng Liu</div>
+                    <div class="paper-categories">
+                        <span class="paper-category">cs.AI</span>
+                    </div>
+                    <div class="card-source">
+                        <span>arXiv:</span>
+                        <a href="https://arxiv.org/pdf/2603.18000v1" target="_blank">2603.18000v1</a>
+                    </div>
+                    <p class="card-summary">
+                        构建基于LLM的Agent变得越来越重要。近期关于LLM Agent自我进化的研究主要将成功经验记录为文本提示或反思，这无法在复杂场景中可靠地保证任务的高效重新执行。我们提出AgentFactory，一种新的自我进化范式，将成功的任务解决方案保存为可执行的子代理代码，而非文本经验。
+                    </p>
+                    <div class="card-insight">
+                        <div class="card-insight-label">锐评</div>
+                        AgentFactory的核心创新在于"代码即经验"——把Agent的成功经验保存为可执行的Python代码，而不是文本提示。这解决了当前Agent框架的一个痛点：文本提示难以保证复杂任务的可靠重执行。这个思路如果成功，可能改变Agent开发的游戏规则——从"写提示"变成"积累代码库"。
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">STTS: 统一时空Token评分实现高效视频VLM</h3>
+                        <span class="card-badge">Video VLM</span>
+                    </div>
+                    <div class="paper-authors">Jianrui Zhang, Yue Yang, Rohun Tripathi, Winson Han, et al.</div>
+                    <div class="paper-categories">
+                        <span class="paper-category">cs.CV</span>
+                        <span class="paper-category">cs.AI</span>
+                        <span class="paper-category">cs.LG</span>
+                    </div>
+                    <div class="card-source">
+                        <span>arXiv:</span>
+                        <a href="https://arxiv.org/pdf/2603.18004v1" target="_blank">2603.18004v1</a>
+                    </div>
+                    <p class="card-summary">
+                        本文提出时空Token评分（STTS），一个简单轻量的模块，可在ViT和LLM之间统一剪枝视觉token，无需文本条件或token合并。STTS在整个架构中剪枝50%的视觉token，在训练和推理中实现62%的效率提升，在13个短长视频QA任务上平均性能仅下降0.7%。
+                    </p>
+                    <div class="card-insight">
+                        <div class="card-insight-label">锐评</div>
+                        STTS的亮点是"跨架构统一剪枝"——同时作用于ViT和LLM。50%的token剪枝带来62%的效率提升，这个投入产出比非常可观。更值得关注的是，测试时缩放还能带来额外0.5-1%的性能提升，这说明效率和精度并非完全对立。对于视频理解这个算力消耗大户，STTS可能成为一个标准组件。
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">SkeletonLLM: 通过可微渲染和MLLM实现通用骨架理解</h3>
+                        <span class="card-badge">Multimodal</span>
+                    </div>
+                    <div class="paper-authors">Ziyi Wang, Peiming Li, Xinshun Wang, Yang Tang, et al.</div>
+                    <div class="paper-categories">
+                        <span class="paper-category">cs.CV</span>
+                    </div>
+                    <div class="card-source">
+                        <span>arXiv:</span>
+                        <a href="https://arxiv.org/pdf/2603.18003v1" target="_blank">2603.18003v1</a>
+                    </div>
+                    <p class="card-summary">
+                        多模态大语言模型（MLLMs）展现出强大的视觉语言推理能力，但仍局限于其原生模态，无法直接处理结构化非视觉数据（如人体骨架）。我们提出SkeletonLLM，通过将任意骨架序列转换为MLLM的原生视觉模态，实现通用骨架理解。
+                    </p>
+                    <div class="card-insight">
+                        <div class="card-insight-label">锐评</div>
+                        SkeletonLLM解决了一个被忽视的问题：如何让MLLM理解非视觉的结构化数据。其核心思路很巧妙——不是改造MLLM，而是把骨架数据"渲染"成MLLM能理解的图像。这种"模态转换"的思路可以推广到其他结构化数据。动作识别、体育分析、医疗康复等场景都可能受益。
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Loc3R-VLM: 基于语言的定位与3D推理视觉语言模型</h3>
+                        <span class="card-badge">3D Vision</span>
+                    </div>
+                    <div class="paper-authors">Kevin Qu, Haozhe Qi, Mihai Dusmanu, Mahdi Rad, et al.</div>
+                    <div class="paper-categories">
+                        <span class="paper-category">cs.CV</span>
+                        <span class="paper-category">cs.AI</span>
+                        <span class="paper-category">cs.CL</span>
+                    </div>
+                    <div class="card-source">
+                        <span>arXiv:</span>
+                        <a href="https://arxiv.org/pdf/2603.18002v1" target="_blank">2603.18002v1</a>
+                    </div>
+                    <p class="card-summary">
+                        我们提出Loc3R-VLM，一个为2D视觉语言模型配备从单目视频输入进行高级3D理解能力的框架。受人类空间认知启发，Loc3R-VLM依赖两个联合目标：全局布局重建以构建场景结构的整体表示，显式情境建模以锚定自我中心视角。
+                    </p>
+                    <div class="card-insight">
+                        <div class="card-insight-label">锐评</div>
+                        Loc3R-VLM的核心贡献是"显式3D监督"——不是给模型更多几何线索，而是直接教它在3D空间中推理。全局布局重建+情境建模的双目标设计，模仿了人类的空间认知机制。这个思路对于AR/VR、机器人导航、自动驾驶等需要空间推理的场景很有价值。
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">EchoGen: 统一布局-图像生成与理解的循环一致学习</h3>
+                        <span class="card-badge">Image Generation</span>
+                    </div>
+                    <div class="paper-authors">Kai Zou, Hongbo Liu, Dian Zheng, Jianxiong Gao, et al.</div>
+                    <div class="paper-categories">
+                        <span class="paper-category">cs.CV</span>
+                    </div>
+                    <div class="card-source">
+                        <span>arXiv:</span>
+                        <a href="https://arxiv.org/pdf/2603.18001v1" target="_blank">2603.18001v1</a>
+                    </div>
+                    <p class="card-summary">
+                        本文提出EchoGen，一个用于布局到图像生成和图像grounding的统一框架。我们提出渐进式训练策略：并行多任务预训练（PMTP）阶段赋予模型两项任务的基本能力；双联合优化（DJO）阶段利用任务对偶性顺序整合两个任务；Cycle RL阶段通过使用一致性约束作为奖励消除对视觉监督的依赖。
+                    </p>
+                    <div class="card-insight">
+                        <div class="card-insight-label">锐评</div>
+                        EchoGen的"循环一致"思路很有启发性——布局生成和图像grounding是两个互逆的任务，联合训练可以互相增强。这种"任务对偶性"的利用在深度学习里并不常见。渐进式训练策略的设计也很精巧，解决了联合训练的优化难题。
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">LoST: 3D形状的语义层次Token化</h3>
+                        <span class="card-badge">3D Generation</span>
+                    </div>
+                    <div class="paper-authors">Niladri Shekhar Dutt, Zifan Shi, Paul Guerrero, et al.</div>
+                    <div class="paper-categories">
+                        <span class="paper-category">cs.CV</span>
+                        <span class="paper-category">cs.GR</span>
+                        <span class="paper-category">cs.LG</span>
+                    </div>
+                    <div class="card-source">
+                        <span>arXiv:</span>
+                        <a href="https://arxiv.org/pdf/2603.17995v1" target="_blank">2603.17995v1</a>
+                    </div>
+                    <p class="card-summary">
+                        我们提出语义层次Token化（LoST），按语义显著性排序token，使得早期前缀解码成完整、合理的形状并具有主要语义，而后续token细化实例特定的几何和语义细节。LoST实现高效、高质量的AR 3D生成，仅使用先前AR模型所需token的0.1%-10%。
+                    </p>
+                    <div class="card-insight">
+                        <div class="card-insight-label">锐评</div>
+                        LoST的核心洞察是"语义优先于几何"——传统的3D token化按几何细节分层，而LoST按语义显著性分层。这种"语义层次"的设计让模型可以用更少的token生成合理的形状（仅需0.1%-10%的token），这对于3D生成的效率是质的提升。
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">文本嵌入插值用于连续图像引导的惊人有效性</h3>
+                        <span class="card-badge">Image Editing</span>
+                    </div>
+                    <div class="paper-authors">Yigit Ekin, Yossi Gandelsman</div>
+                    <div class="paper-categories">
+                        <span class="paper-category">cs.CV</span>
+                    </div>
+                    <div class="card-source">
+                        <span>arXiv:</span>
+                        <a href="https://arxiv.org/pdf/2603.17998v1" target="_blank">2603.17998v1</a>
+                    </div>
+                    <p class="card-summary">
+                        我们提出一个无需训练的框架，用于文本条件生成模型的测试时连续可控图像编辑。我们发现简单的文本嵌入空间引导就足以产生平滑的编辑控制。给定目标概念，我们使用大语言模型自动构建一小组去偏对比提示对，从中计算生成器文本编码器空间中的引导向量。
+                    </p>
+                    <div class="card-insight">
+                        <div class="card-insight-label">锐评</div>
+                        这篇论文的核心发现确实令人惊讶——不需要复杂的训练或架构修改，仅仅在文本嵌入空间做插值就能实现高质量的连续图像编辑。"弹性范围搜索"自动确定引导幅度区间，解决了手动调参的痛点。这个方法可以应用到任何文本条件生成模型上。
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Summary Section -->
+        <section class="section" id="summary">
+            <div class="summary-section">
+                <div class="summary-header">
+                    <div class="summary-icon">📊</div>
+                    <h2 class="summary-title">今日总结</h2>
+                </div>
+                <div class="summary-content">
+                    <p><strong>投资层面</strong>，腾讯宣布AI投资翻倍，与微软、Google、Anthropic的巨额投入形成呼应，说明巨头们正在用资本构建护城河。算力对外租售的策略也意味着AI基础设施正在成为新的战场。</p>
+                    <p><strong>技术层面</strong>，Agent框架正在从"文本提示"向"可执行代码"演进（AgentFactory），视频理解在效率优化上取得突破（STTS），3D生成开始关注语义层面的优化（LoST）。这些进展都在指向同一个方向：AI正在从"能用"走向"好用"和"高效"。</p>
+                    <p><strong>应用层面</strong>，数字人、OCR、多模态聊天机器人等实用工具持续获得社区关注，说明AI落地正在从"概念验证"进入"生产部署"阶段。GitHub上的热门项目越来越多地关注"如何连接业务系统"，而非"如何训练更好的模型"。</p>
+                    <p><strong>地缘政治层面</strong>，MIT关于"硅谷产品基于中国开源模型"的预测，以及马化腾对DeepSeek的公开回应，都暗示着AI领域的全球格局正在发生微妙变化。开源模型正在重塑竞争规则。</p>
+                    <p>总体而言，2026年的AI行业正在经历从"技术突破"到"工程落地"、从"实验室"到"生产线"的关键转折。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-brand">AI Daily Digest by QoderWork</div>
+        <p>本报告由 QoderWork 自动生成，数据截止至 2026-03-19</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">© 2026 QoderWork. All rights reserved.</p>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" onclick="scrollToTop()" id="backToTop">↑</button>
+
+    <script>
+        // Theme Toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            html.setAttribute('data-theme', newTheme);
+            icon.textContent = newTheme === 'light' ? '☀️' : '🌙';
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        document.getElementById('theme-icon').textContent = savedTheme === 'light' ? '☀️' : '🌙';
+
+        // Back to Top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Show/hide back to top button
+        window.addEventListener('scroll', () => {
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Add hover effect to cards
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>

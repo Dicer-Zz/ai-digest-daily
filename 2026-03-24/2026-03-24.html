@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 每日资讯速递 - 2026-03-24</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-card: #334155;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --accent-cyan: #06b6d4;
+            --accent-pink: #ec4899;
+            --accent-orange: #f97316;
+            --accent-green: #10b981;
+            --border-color: #475569;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-card: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        /* Header */
+        .header {
+            background: var(--gradient-1);
+            padding: 3rem 1rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .header .date {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Navigation */
+        .nav {
+            background: var(--bg-secondary);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .nav a:hover {
+            background: var(--bg-card);
+            color: var(--accent-blue);
+        }
+
+        /* Main Content */
+        .main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* Section Headers */
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .section-icon {
+            font-size: 1.75rem;
+        }
+
+        .section h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-blue);
+        }
+
+        .card-follow-up {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%);
+            border: 2px solid rgba(251, 191, 36, 0.3);
+        }
+
+        .card-follow-up:hover {
+            border-color: #f59e0b;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.4;
+            flex: 1;
+        }
+
+        .follow-up-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: #78350f;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .card-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+        }
+
+        .card-meta a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .card-meta a:hover {
+            text-decoration: underline;
+        }
+
+        .card-content {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .card-content p {
+            margin-bottom: 0.75rem;
+        }
+
+        .card-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Context Box for Follow-ups */
+        .context-box {
+            background: rgba(251, 191, 36, 0.1);
+            border-left: 4px solid #f59e0b;
+            padding: 0.75rem 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Commentary */
+        .commentary {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-top: 1rem;
+            border-left: 4px solid var(--accent-purple);
+        }
+
+        .commentary-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            color: var(--accent-purple);
+        }
+
+        .commentary-role {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.875rem;
+        }
+
+        .commentary-content {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .commentary-quote {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px dashed var(--border-color);
+            font-style: italic;
+            color: var(--accent-cyan);
+            font-weight: 500;
+        }
+
+        /* GitHub Card Specifics */
+        .github-stats {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .github-stat {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        .github-stat strong {
+            color: var(--accent-orange);
+            font-size: 1.1rem;
+        }
+
+        .language-tag {
+            display: inline-block;
+            background: var(--accent-blue);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* ArXiv Card Specifics */
+        .arxiv-id {
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 0.875rem;
+            color: var(--accent-green);
+            background: rgba(16, 185, 129, 0.1);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .abstract-box {
+            background: var(--bg-card);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .abstract-label {
+            font-weight: 600;
+            color: var(--accent-blue);
+            margin-bottom: 0.5rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Summary Section */
+        .summary {
+            background: var(--gradient-1);
+            border-radius: 20px;
+            padding: 2rem;
+            color: white;
+            margin-top: 3rem;
+        }
+
+        .summary h2 {
+            color: white;
+            -webkit-text-fill-color: white;
+            margin-bottom: 1rem;
+        }
+
+        .summary-list {
+            list-style: none;
+        }
+
+        .summary-list li {
+            padding: 0.75rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .summary-list li:last-child {
+            border-bottom: none;
+        }
+
+        .summary-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #fbbf24;
+            font-weight: bold;
+        }
+
+        .summary-quote {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid rgba(255,255,255,0.2);
+            font-style: italic;
+            font-size: 1.1rem;
+            text-align: center;
+            opacity: 0.95;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.75rem;
+            }
+
+            .section h2 {
+                font-size: 1.4rem;
+            }
+
+            .card {
+                padding: 1rem;
+            }
+
+            .card-header {
+                flex-direction: column;
+            }
+
+            .follow-up-badge {
+                align-self: flex-start;
+            }
+
+            .nav-content {
+                gap: 0.5rem;
+            }
+
+            .nav a {
+                padding: 0.4rem 0.75rem;
+                font-size: 0.875rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+        .card:nth-child(5) { animation-delay: 0.5s; }
+        .card:nth-child(6) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌓 切换主题</button>
+
+    <header class="header">
+        <div class="header-content">
+            <h1>AI 每日资讯速递</h1>
+            <p class="subtitle">由 QoderWork 自动生成</p>
+            <span class="date">📅 2026-03-24</span>
+        </div>
+    </header>
+
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="#news">🔥 行业热点</a>
+            <a href="#github">🚀 GitHub Trending</a>
+            <a href="#arxiv">📄 arXiv 前沿论文</a>
+            <a href="#summary">📊 今日总结</a>
+        </div>
+    </nav>
+
+    <main class="main">
+        <!-- Industry News -->
+        <section class="section" id="news">
+            <div class="section-header">
+                <span class="section-icon">🔥</span>
+                <h2>行业热点</h2>
+            </div>
+
+            <article class="card card-follow-up">
+                <div class="card-header">
+                    <h3 class="card-title">OpenAI 计划年底将员工数翻倍至 8000 人</h3>
+                    <span class="follow-up-badge">🔄 连续跟踪</span>
+                </div>
+                <div class="context-box">
+                    <strong>前情提要：</strong>3/22 报道了 OpenAI 预计 2026 年亏损 140 亿美元，今日 FT 披露其激进扩张计划。
+                </div>
+                <div class="card-content">
+                    <p>根据《金融时报》报道，OpenAI 计划在今年年底前将员工人数从目前的约 4000 人增加到近 8000 人，几乎翻倍。这一激进的人才扩张计划旨在与 Anthropic 和 Google 展开更激烈的竞争。招聘重点将集中在工程、研究和产品团队，以加速 AI 模型的开发和商业化落地。</p>
+                </div>
+                <div class="card-meta">
+                    <a href="https://www.reuters.com/business/openai-nearly-double-workforce-8000-by-end-2026-ft-reports-2026-03-21/" target="_blank">Reuters</a>
+                    <span>|</span>
+                    <a href="https://www.bloomberg.com/news/articles/2026-03-21/openai-plans-to-almost-double-its-headcount-this-year-ft-says" target="_blank">Bloomberg</a>
+                </div>
+                <div class="commentary">
+                    <div class="commentary-header">
+                        <span class="commentary-role">💰 投资人视角</span>
+                    </div>
+                    <div class="commentary-content">
+                        <p>两天前我们还在讨论 OpenAI 140 亿美元的亏损预测，今天人才扩张的消息就给出了答案——这是一场"烧钱换时间"的豪赌。从 4000 人到 8000 人，意味着每月净增超过 300 人，这种扩张速度在科技史上都属罕见。但问题在于：当 GPT-5 的发布一再推迟，当 Claude 和 Gemini 紧追不舍，人才数量能否转化为技术领先优势？历史证明，AI 领域的突破往往来自小团队的灵光一现，而非大兵团作战。OpenAI 正在用工业时代的逻辑解决信息时代的问题。</p>
+                    </div>
+                    <div class="commentary-quote">
+                        "当一家 AI 公司开始像制造业一样扩张，它可能正在失去自己最珍贵的东西——创新的敏捷性。"
+                    </div>
+                </div>
+            </article>
+
+            <article class="card card-follow-up">
+                <div class="card-header">
+                    <h3 class="card-title">xAI Grok 4.1 Fast 正式发布，200 万 Token 上下文窗口</h3>
+                    <span class="follow-up-badge">🔄 连续跟踪</span>
+                </div>
+                <div class="context-box">
+                    <strong>前情提要：</strong>3/23 报道了 Grok 4.1 发布，今日 xAI 官方公布了 Fast 版本的详细规格。
+                </div>
+                <div class="card-content">
+                    <p>xAI 正式发布 Grok 4.1 Fast 版本，这是 Grok 4.1 的高速推理变体，专为 Agentic AI 场景优化。该模型支持惊人的 200 万 Token 上下文窗口，是迄今为止商业模型中最大的上下文容量。Grok 4.1 Fast 提供两种运行模式：推理模式（reasoning mode）针对复杂问题求解优化，快速模式（fast mode）针对低延迟场景优化。</p>
+                </div>
+                <div class="card-meta">
+                    <a href="https://x.ai/news/grok-4-1" target="_blank">xAI Official</a>
+                    <span>|</span>
+                    <a href="https://www.aicerts.ai/news/xai-grok-4-1-fast-agentic-ai-model-release-with-2m-tokens/" target="_blank">AI CERTs</a>
+                </div>
+                <div class="commentary">
+                    <div class="commentary-header">
+                        <span class="commentary-role">💰 投资人视角</span>
+                    </div>
+                    <div class="commentary-content">
+                        <p>200 万 Token 上下文窗口是一个重要的技术里程碑——这意味着模型可以一次性处理整本书籍、大型代码库或长时间的对话历史。从竞争格局看，xAI 正在走差异化路线：不追求最安全的 AI，而是追求最"能干"的 AI。这种定位在企业级市场有明确的客户群体。</p>
+                    </div>
+                </div>
+                <div class="commentary">
+                    <div class="commentary-header">
+                        <span class="commentary-role">🚀 创业者视角</span>
+                    </div>
+                    <div class="commentary-content">
+                        <p>对于做 AI 应用的创业者，Grok 4.1 Fast 的长上下文能力打开了一些新的产品可能性：整本法律文档的分析、大型代码库的跨文件理解、长期记忆的个人助理等。但也要注意，长上下文不等于有效利用——如何设计 Prompt 让模型真正理解长文本中的关键信息，仍然是一个工程挑战。</p>
+                    </div>
+                    <div class="commentary-quote">
+                        "上下文窗口的军备竞赛才刚刚开始，真正的赢家是那些知道如何用满这些窗口的人。"
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3 class="card-title">《国际 AI 安全报告 2026》正式发布</h3>
+                </div>
+                <div class="card-content">
+                    <p>由 30 个国家、联合国、OECD 和欧盟共同委托编写的《国际 AI 安全报告 2026》正式发布。这是继 2025 年首份报告后的第二版，汇集了全球 100 多位 AI 专家的研究成果。报告指出，通用 AI 系统的风险正在快速演变，从深度伪造、网络攻击到生物武器设计，AI 的滥用风险正在上升。</p>
+                </div>
+                <div class="card-meta">
+                    <a href="https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026" target="_blank">International AI Safety Report</a>
+                    <span>|</span>
+                    <a href="https://www.nature.com/articles/d41586-025-04106-0" target="_blank">Nature</a>
+                </div>
+                <div class="commentary">
+                    <div class="commentary-header">
+                        <span class="commentary-role">🎯 多角度综合视角</span>
+                    </div>
+                    <div class="commentary-content">
+                        <p><strong>💰 投资人视角：</strong>这份报告的重要性在于它代表了全球监管共识的形成。30 个国家的一致立场意味着 AI 安全不再是可选的 CSR 项目，而是即将成为强制性合规要求。对于投资者来说，这意味着需要重新评估 AI 公司的"安全准备度"。</p>
+                        <p><strong>🔬 科研工作者视角：</strong>报告对通用 AI 风险的评估相对平衡，既没有过度炒作"AI 灭绝人类"的极端场景，也没有忽视真实存在的滥用风险。值得关注的建议是建立"红队测试"的标准化流程——这对于科研界意味着新的研究机会和方法论创新。</p>
+                    </div>
+                    <div class="commentary-quote">
+                        "当 30 个国家开始讨论同一份 AI 安全报告时，合规的齿轮已经开始转动——无论你同意还是不同意报告的内容。"
+                    </div>
+                </div>
+            </article>
+
+            <article class="card card-follow-up">
+                <div class="card-header">
+                    <h3 class="card-title">字节跳动 Seedance 2.0 版权争议持续，美国参议员呼吁关闭</h3>
+                    <span class="follow-up-badge">🔄 连续跟踪</span>
+                </div>
+                <div class="context-box">
+                    <strong>前情提要：</strong>3/22 报道了字节跳动 Seedance 2.0 因版权争议暂停全球发布，今日美国政界介入。
+                </div>
+                <div class="card-content">
+                    <p>美国参议员 Marsha Blackburn 和 Peter Welch 联名致信字节跳动，要求其关闭 Seedance 2.0 AI 视频生成模型，理由是涉嫌侵犯版权。参议员们在信中指出，该模型可能使用了受版权保护的电影、电视节目和其他内容进行训练，违反了美国知识产权法。</p>
+                </div>
+                <div class="card-meta">
+                    <a href="https://www.blackburn.senate.gov/2026/3/technology/blackburn-welch-call-on-bytedance-to-shut-down-seedance-2-0-ai-video-model-following-copyright-infringement" target="_blank">Senator Blackburn Office</a>
+                    <span>|</span>
+                    <a href="https://www.reuters.com/technology/bytedance-suspends-launch-video-ai-model-after-copyright-disputes-information-2026-03-14/" target="_blank">Reuters</a>
+                </div>
+                <div class="commentary">
+                    <div class="commentary-header">
+                        <span class="commentary-role">💰 投资人视角</span>
+                    </div>
+                    <div class="commentary-content">
+                        <p>从商业角度看，Seedance 2.0 的遭遇是一个典型的"技术领先、合规落后"案例。字节跳动在视频生成技术上确实有竞争力，但训练数据的版权问题正在成为其全球化的最大障碍。对于投资者来说，这揭示了一个被低估的风险：AI 公司的核心竞争力（训练数据）可能同时是其最大的法律 liability。</p>
+                    </div>
+                    <div class="commentary-quote">
+                        "在 AI 时代，数据是新的石油——但石油开采需要许可证，数据使用也是如此。"
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Cloudflare CEO 预测：2027 年机器人流量将超过人类流量</h3>
+                </div>
+                <div class="card-content">
+                    <p>Cloudflare CEO Matthew Prince 在 SXSW 2026 大会上预测，到 2027 年，互联网上的 AI 机器人流量将超过人类用户产生的流量。这一预测基于 Cloudflare 监测到的数据趋势：AI Agent 和爬虫的流量正在以指数级速度增长。</p>
+                </div>
+                <div class="card-meta">
+                    <a href="https://searchengineland.com/bots-overtake-human-web-usage-2027-472109" target="_blank">Search Engine Land</a>
+                    <span>|</span>
+                    <a href="https://www.ndtv.com/feature/ai-bots-to-overtake-human-internet-traffic-by-2027-says-cloudflare-ceo-11242322" target="_blank">NDTV</a>
+                </div>
+                <div class="commentary">
+                    <div class="commentary-header">
+                        <span class="commentary-role">🎯 多角度综合视角</span>
+                    </div>
+                    <div class="commentary-content">
+                        <p><strong>💰 投资人视角：</strong>机器人流量超过人类，意味着"为人类设计的互联网"正在变成"为 AI 设计的互联网"。这对广告科技公司可能是致命打击——如果点击都来自机器人，广告价值何在？但对 Cloudflare 这类基础设施公司是利好。</p>
+                        <p><strong>🚀 创业者视角：</strong>当互联网变成"AI 对 AI"的世界，人机交互界面需要重新设计。未来的 SaaS 产品可能需要同时服务"人类用户"和"AI Agent"两种客户端，这是全新的产品范式。</p>
+                    </div>
+                    <div class="commentary-quote">
+                        "当机器人成为互联网的主要居民，人类可能会怀念那个由真人主导的网络时代。"
+                    </div>
+                </div>
+            </article>
+
+            <article class="card card-follow-up">
+                <div class="card-header">
+                    <h3 class="card-title">NVIDIA 与 Amazon 签署协议：2027 年底前交付 100 万颗芯片</h3>
+                    <span class="follow-up-badge">🔄 连续跟踪</span>
+                </div>
+                <div class="context-box">
+                    <strong>前情提要：</strong>3/21 报道了此消息，今日更多细节披露：订单总额可能超过 500 亿美元。
+                </div>
+                <div class="card-content">
+                    <p>据知情人士透露，NVIDIA 与 Amazon AWS 达成的芯片供应协议总价值可能超过 500 亿美元，是 NVIDIA 历史上最大的单笔订单。协议涵盖 NVIDIA 最新的 B100、B200 以及下一代 Rubin 架构芯片，交付期从 2026 年持续至 2027 年底。</p>
+                </div>
+                <div class="card-meta">
+                    <a href="https://www.reuters.com/business/retail-consumer/nvidia-sell-1-million-chips-amazon-by-end-2027-cloud-deal-2026-03-19/" target="_blank">Reuters</a>
+                    <span>|</span>
+                    <a href="https://finance.yahoo.com/sectors/technology/articles/nvidia-deliver-1-million-ai-chips-133129767.html" target="_blank">Yahoo Finance</a>
+                </div>
+                <div class="commentary">
+                    <div class="commentary-header">
+                        <span class="commentary-role">💰 投资人视角</span>
+                    </div>
+                    <div class="commentary-content">
+                        <p>500 亿美元订单、两年交付期——这意味着 NVIDIA 未来两年的高端产能已经有相当比例被锁定。对于竞争对手（AMD、Intel、自研芯片的云厂商）来说，窗口期正在关闭。但这也埋下了风险：如果 AI 需求在 2027 年前出现周期性下滑，NVIDIA 将面临产能过剩的压力。</p>
+                    </div>
+                    <div class="commentary-quote">
+                        "当一笔订单的金额超过大多数国家的 GDP 时，它不再只是商业交易，而是对整个行业未来的押注。"
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- GitHub Trending -->
+        <section class="section" id="github">
+            <div class="section-header">
+                <span class="section-icon">🚀</span>
+                <h2>GitHub Trending</h2>
+            </div>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3 class="card-title">chatgpt-on-wechat —— 基于大模型的超级 AI 助理</h3>
+                </div>
+                <div class="github-stats">
+                    <div class="github-stat">
+                        <span>⭐</span>
+                        <strong>42,431</strong>
+                        <span>（今日 +67）</span>
+                    </div>
+                    <div class="github-stat">
+                        <span class="language-tag">Python</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p>CowAgent 是基于大模型的超级 AI 助理，能主动思考和任务规划、访问操作系统和外部资源、创造和执行 Skills、拥有长期记忆并不断成长。支持微信、飞书、钉钉、企微、QQ、公众号、网页等接入，可选择 OpenAI/Claude/Gemini/DeepSeek/Qwen/GLM/Kimi 等模型。</p>
+                </div>
+                <div class="card-meta">
+                    <a href="https://github.com/zhayujie/chatgpt-on-wechat" target="_blank">github.com/zhayujie/chatgpt-on-wechat</a>
+                </div>
+                <div class="commentary">
+                    <div class="commentary-header">
+                        <span class="commentary-role">🚀 创业者视角</span>
+                    </div>
+                    <div class="commentary-content">
+                        <p>这个项目已经从简单的"微信 ChatGPT 机器人"进化成了一个完整的 Agent 框架。67 个今日新增 star 显示其社区活跃度很高。对于创业者，这个项目展示了 AI 应用的一个成功路径：从一个简单的 MVP（微信机器人）开始，逐步叠加功能（多平台支持、多模型兼容、Agent 能力），最终形成一个平台级产品。</p>
+                    </div>
+                    <div class="commentary-quote">
+                        "当 AI 助理可以接入你所有的通讯工具时，它不再是一个应用，而是一个操作系统。"
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3 class="card-title">MusicFree —— 插件化免费音乐播放器</h3>
+                </div>
+                <div class="github-stats">
+                    <div class="github-stat">
+                        <span>⭐</span>
+                        <strong>23,818</strong>
+                        <span>（今日 +27）</span>
+                    </div>
+                    <div class="github-stat">
+                        <span class="language-tag">TypeScript</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p>插件化、定制化、无广告的免费音乐播放器。支持通过插件扩展音源，实现跨平台音乐聚合播放。</p>
+                </div>
+                <div class="card-meta">
+                    <a href="https://github.com/maotoumao/MusicFree" target="_blank">github.com/maotoumao/MusicFree</a>
+                </div>
+                <div class="commentary">
+                    <div class="commentary-header">
+                        <span class="commentary-role">🚀 创业者视角</span>
+                    </div>
+                    <div class="commentary-content">
+                        <p>MusicFree 的核心创新在于"插件化音源"——不直接提供音乐内容，而是通过插件机制让用户自行接入各种音源。这种模式在法律上更为安全，同时也提供了极大的灵活性。对于做内容聚合类产品的创业者，这种"平台+插件"的模式值得借鉴。</p>
+                    </div>
+                    <div class="commentary-quote">
+                        "在版权敏感领域，做平台而不是做内容，可能是更可持续的商业模式。"
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3 class="card-title">AstrBot —— 多平台 LLM 聊天机器人框架</h3>
+                </div>
+                <div class="github-stats">
+                    <div class="github-stat">
+                        <span>⭐</span>
+                        <strong>26,788</strong>
+                        <span>（今日 +204）</span>
+                    </div>
+                    <div class="github-stat">
+                        <span class="language-tag">Python</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p>一个易于使用的多平台聊天机器人框架，支持 QQ、QQ频道、Telegram、微信、B站等消息平台，支持 OpenAI、DeepSeek、Gemini、Claude、Llama、Ollama 等模型。</p>
+                </div>
+                <div class="card-meta">
+                    <a href="https://github.com/AstrBotDevs/AstrBot" target="_blank">github.com/AstrBotDevs/AstrBot</a>
+                </div>
+                <div class="commentary">
+                    <div class="commentary-header">
+                        <span class="commentary-role">🚀 创业者视角</span>
+                    </div>
+                    <div class="commentary-content">
+                        <p>204 个今日新增 star 是一个显著的增长信号。AstrBot 的定位是"多平台 LLM 聊天机器人框架"，更强调"框架"属性——为开发者提供构建自定义机器人的基础设施。对于创业者，这提示了一个机会：随着 LLM 应用的普及，"连接模型与平台"的基础设施层将有持续需求。</p>
+                    </div>
+                    <div class="commentary-quote">
+                        "在 AI 时代，消息平台是新的操作系统，而 AstrBot 正在成为它们的通用驱动。"
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Umi-OCR —— 开源 OCR 工具</h3>
+                </div>
+                <div class="github-stats">
+                    <div class="github-stat">
+                        <span>⭐</span>
+                        <strong>42,733</strong>
+                        <span>（今日 +25）</span>
+                    </div>
+                    <div class="github-stat">
+                        <span class="language-tag">Python</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p>开源、免费的离线 OCR 软件，支持截图识别、批量图片识别、PDF 识别等。基于 PaddleOCR 和 RapidOCR，支持 Windows/Linux/MacOS。</p>
+                </div>
+                <div class="card-meta">
+                    <a href="https://github.com/hiroi-sora/Umi-OCR" target="_blank">github.com/hiroi-sora/Umi-OCR</a>
+                </div>
+                <div class="commentary">
+                    <div class="commentary-header">
+                        <span class="commentary-role">🔬 科研工作者视角</span>
+                    </div>
+                    <div class="commentary-content">
+                        <p>OCR 是 AI 落地的"低 hanging fruit"之一，应用场景广泛但技术门槛相对可控。Umi-OCR 的价值在于"离线可用"——在数据隐私日益重要的今天，本地运行的 OCR 工具比云端服务更有吸引力。</p>
+                    </div>
+                    <div class="commentary-quote">
+                        "当 AI 可以离线运行，它才真正成为用户的工具而非厂商的服务。"
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3 class="card-title">JeecgBoot —— AI 驱动的低代码开发平台</h3>
+                </div>
+                <div class="github-stats">
+                    <div class="github-stat">
+                        <span>⭐</span>
+                        <strong>45,477</strong>
+                        <span>（今日 +18）</span>
+                    </div>
+                    <div class="github-stat">
+                        <span class="language-tag">Java</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p>一款 AI 驱动的低代码平台，提供"零代码"与"代码生成"双模式。内置 AI 聊天助手、AI 大模型、知识库、AI 流程编排、MCP 与插件体系，兼容主流大模型。</p>
+                </div>
+                <div class="card-meta">
+                    <a href="https://github.com/jeecgboot/JeecgBoot" target="_blank">github.com/jeecgboot/JeecgBoot</a>
+                </div>
+                <div class="commentary">
+                    <div class="commentary-header">
+                        <span class="commentary-role">💰 投资人视角</span>
+                    </div>
+                    <div class="commentary-content">
+                        <p>低代码+AI 是一个被低估的赛道。企业数字化转型的需求持续增长，但专业开发者供不应求。AI 增强的低代码平台可以大幅降低应用开发的门槛，这是一个明确的商业价值。JeecgBoot 的 4.5 万 star 和持续增长说明其已经在开发者社区建立了品牌，这是重要的竞争壁垒。</p>
+                    </div>
+                    <div class="commentary-quote">
+                        "低代码让普通人能构建应用，AI 让低代码平台能理解需求——两者结合，可能重新定义软件开发的边界。"
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- arXiv Papers -->
+        <section class="section" id="arxiv">
+            <div class="section-header">
+                <span class="section-icon">📄</span>
+                <h2>arXiv 前沿论文</h2>
+            </div>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3 class="card-title">ROM: 通过流式检测和干预实现实时过度思考缓解</h3>
+                    <span class="arxiv-id">arXiv:2603.22016</span>
+                </div>
+                <div class="card-meta">
+                    <span>Xinyan Wang, Xiaogeng Liu, Chaowei Xiao</span>
+                    <span>|</span>
+                    <a href="https://arxiv.org/pdf/2603.22016v1" target="_blank">PDF</a>
+                </div>
+                <div class="abstract-box">
+                    <div class="abstract-label">摘要翻译</div>
+                    <p>大型推理模型（LRMs）通过生成长思维链在挑战性任务上取得了很高的准确率，但存在"过度思考"问题——即使在得出正确答案后，它们仍会继续生成冗余的推理步骤。我们提出 ROM，首个将过度思考缓解形式化为流式预测-控制问题的方法。在七个基准测试中，ROM 实现了最高准确率（93.51%）、最短响应长度（1,159 个 Token）和最佳响应效率。相比基线，响应长度减少 47.2%，效率提升 121%。</p>
+                </div>
+                <div class="commentary">
+                    <div class="commentary-header">
+                        <span class="commentary-role">🔬 科研工作者视角</span>
+                    </div>
+                    <div class="commentary-content">
+                        <p>这篇论文切中了当前推理模型的一个核心痛点：过度思考。ROM 的创新在于将这个问题形式化为"流式预测-控制"问题，通过轻量级检测头实时监测并干预。47.2% 的响应长度减少同时保持准确率，这个结果非常 impressive。对于实际部署，这意味着显著的成本节省和用户体验提升。</p>
+                    </div>
+                    <div class="commentary-quote">
+                        "当 AI 学会'见好就收'，推理模型的商业化才算真正成熟。"
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3 class="card-title">daVinci-MagiHuman: 开源音视频生成基础模型</h3>
+                    <span class="arxiv-id">arXiv:2603.21986</span>
+                </div>
+                <div class="card-meta">
+                    <span>SII-GAIR, Sand.ai 等</span>
+                    <span>|</span>
+                    <a href="https://arxiv.org/pdf/2603.21986v1" target="_blank">PDF</a>
+                </div>
+                <div class="abstract-box">
+                    <div class="abstract-label">摘要翻译</div>
+                    <p>我们推出 daVinci-MagiHuman，一个开源的音视频生成基础模型，专注于人物中心生成。该模型使用单流 Transformer 联合生成同步的视频和音频，通过自注意力机制统一处理文本、视频和音频 Token。在 H100 GPU 上生成 5 秒 256p 视频仅需 2 秒，语音识别错误率仅 14.60%。</p>
+                </div>
+                <div class="commentary">
+                    <div class="commentary-header">
+                        <span class="commentary-role">🔬 科研工作者视角</span>
+                    </div>
+                    <div class="commentary-content">
+                        <p>这篇论文代表了音视频联合生成领域的重要进展。与 Runway、Pika 等闭源产品不同，daVinci-MagiHuman 完全开源。单流 Transformer 架构的设计选择很有价值——它简化了训练流程，同时保持了生成质量。多语言支持（包括中文）也是一个差异化优势。</p>
+                    </div>
+                </div>
+                <div class="commentary">
+                    <div class="commentary-header">
+                        <span class="commentary-role">💰 投资人视角</span>
+                    </div>
+                    <div class="commentary-content">
+                        <p>开源的音视频生成模型正在快速追赶闭源产品。daVinci-MagiHuman 的发布意味着，创业公司可以以很低的成本获得接近 SOTA 的音视频生成能力。这可能会加速 AI 视频应用的创新，但也意味着技术本身不再是护城河。</p>
+                    </div>
+                    <div class="commentary-quote">
+                        "当开源模型可以 2 秒生成 5 秒视频，闭源产品的定价策略可能需要重新考虑。"
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3 class="card-title">SegMaFormer: 用于高效分割的混合状态空间和 Transformer 模型</h3>
+                    <span class="arxiv-id">arXiv:2603.22002</span>
+                </div>
+                <div class="card-meta">
+                    <span>Duy D. Nguyen, Phat T. Tran-Truong</span>
+                    <span>|</span>
+                    <a href="https://arxiv.org/pdf/2603.22002v1" target="_blank">PDF</a>
+                </div>
+                <div class="abstract-box">
+                    <div class="abstract-label">摘要翻译</div>
+                    <p>本文提出 SegMaFormer，一种轻量级混合架构，在分层体积编码器中协同结合 Mamba 和 Transformer 模块。模型在早期高分辨率阶段使用 Mamba 层降低计算开销，在后期低分辨率阶段使用自注意力机制细化特征表示。该方法将参数量减少最多 75 倍，并显著降低 FLOPs。</p>
+                </div>
+                <div class="commentary">
+                    <div class="commentary-header">
+                        <span class="commentary-role">🔬 科研工作者视角</span>
+                    </div>
+                    <div class="commentary-content">
+                        <p>这是 Mamba 架构在医学图像分割领域的又一个成功应用。Mamba 作为 Transformer 的替代方案，在处理长序列时具有线性复杂度优势。SegMaFormer 的混合设计很聪明——不是完全替换 Transformer，而是在不同阶段使用最适合的架构。75 倍的参数减少同时保持性能，这对于资源受限的临床环境非常重要。</p>
+                    </div>
+                    <div class="commentary-quote">
+                        "在医学 AI 领域，'小而美'往往比'大而全'更有临床价值。"
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3 class="card-title">揭秘用于长程工具使用 Agent 的强化学习</h3>
+                    <span class="arxiv-id">arXiv:2603.21972</span>
+                </div>
+                <div class="card-meta">
+                    <span>Xixi Wu, Qianguo Sun, Ruiyang Zhang 等</span>
+                    <span>|</span>
+                    <a href="https://arxiv.org/pdf/2603.21972v1" target="_blank">PDF</a>
+                </div>
+                <div class="abstract-box">
+                    <div class="abstract-label">摘要翻译</div>
+                    <p>本文使用 TravelPlanner 测试床进行系统实证研究，将 Agentic RL 设计空间分解为五个维度：奖励塑造、模型扩展、数据组成、算法选择和环境稳定性。控制实验得出 7 个关键发现，例如：奖励和算法选择具有规模依赖性；约 1K 训练样本是性能甜点；环境稳定性对防止策略退化至关重要。</p>
+                </div>
+                <div class="commentary">
+                    <div class="commentary-header">
+                        <span class="commentary-role">🔬 科研工作者视角</span>
+                    </div>
+                    <div class="commentary-content">
+                        <p>这是一篇非常实用的"配方"论文。与许多只报告最终结果的论文不同，这篇论文详细拆解了 RL 训练 Agent 过程中的关键决策点，并给出了可操作的建议。这种细粒度的洞察对于实际构建 Agent 系统的工程师非常宝贵。</p>
+                    </div>
+                </div>
+                <div class="commentary">
+                    <div class="commentary-header">
+                        <span class="commentary-role">🚀 创业者视角</span>
+                    </div>
+                    <div class="commentary-content">
+                        <p>对于做 AI Agent 的创业者，这篇论文提供了一份"避坑指南"。RL 训练 Agent 是一个充满陷阱的领域——奖励设计不当、数据分布失衡、环境不稳定都可能导致训练失败。论文的经验法则可以帮助团队少走弯路。</p>
+                    </div>
+                    <div class="commentary-quote">
+                        "在 Agent 训练的世界里，知道什么不该做，比知道什么该做更重要。"
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3 class="card-title">统一时空 Token 压缩：在超低保留率下的视频 LLM 优化</h3>
+                    <span class="arxiv-id">arXiv:2603.21957</span>
+                </div>
+                <div class="card-meta">
+                    <span>Junhao Du, Jialong Xue, Anqi Li 等</span>
+                    <span>|</span>
+                    <a href="https://arxiv.org/pdf/2603.21957v1" target="_blank">PDF</a>
+                </div>
+                <div class="abstract-box">
+                    <div class="abstract-label">摘要翻译</div>
+                    <p>我们将 Token 压缩重新表述为全局 Token 保留池内的时空分配任务，提出统一选择机制，整合注意力权重和语义相似度来全局选择高贡献、低冗余的 Token。实验显示，仅保留约 2% 的视觉 Token 即可在多个基准上保持 90.1% 的基线性能，同时将 FLOPs 降至约 2.6%。</p>
+                </div>
+                <div class="commentary">
+                    <div class="commentary-header">
+                        <span class="commentary-role">🚀 创业者视角</span>
+                    </div>
+                    <div class="commentary-content">
+                        <p>视频 AI 应用的一个核心瓶颈是成本。处理长视频需要大量的计算资源，这限制了产品的商业化可行性。这篇论文展示的压缩技术可以将 FLOPs 降至 2.6%，这意味着成本可能降低 40 倍。对于做视频 AI 的创业者，这种技术可能是盈亏平衡的关键。</p>
+                    </div>
+                    <div class="commentary-quote">
+                        "在视频 AI 领域，聪明地'忽略'比盲目地'观看'更有价值。"
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <h3 class="card-title">SecureBreak：面向安全模型的数据集</h3>
+                    <span class="arxiv-id">arXiv:2603.21975</span>
+                </div>
+                <div class="card-meta">
+                    <span>Marco Arazzi, Vignesh Kumar Kembu, Antonino Nocera</span>
+                    <span>|</span>
+                    <a href="https://arxiv.org/pdf/2603.21975v1" target="_blank">PDF</a>
+                </div>
+                <div class="abstract-box">
+                    <div class="abstract-label">摘要翻译</div>
+                    <p>本文介绍 SecureBreak，一个安全导向的数据集，旨在支持开发用于检测有害 LLM 输出的 AI 驱动解决方案。该数据集经过仔细的人工标注，标签保守分配以确保安全。测试显示，经过 SecureBreak 微调的预训练 LLM 在检测不安全内容方面表现提升。</p>
+                </div>
+                <div class="commentary">
+                    <div class="commentary-header">
+                        <span class="commentary-role">🔬 科研工作者视角</span>
+                    </div>
+                    <div class="commentary-content">
+                        <p>AI 安全数据集的质量直接影响安全对齐的效果。SecureBreak 的保守标注策略（宁可错杀也不放过）对于安全场景是合理的。数据集的多样化风险类别覆盖也是一个亮点。对于研究 LLM 安全的科研人员，这是一个有价值的资源。</p>
+                    </div>
+                    <div class="commentary-quote">
+                        "在 AI 安全领域，数据集的质量决定了安全系统的天花板。"
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Summary -->
+        <section class="section" id="summary">
+            <div class="summary">
+                <h2>📊 今日总结</h2>
+                <ul class="summary-list">
+                    <li><strong>人才军备竞赛白热化：</strong>OpenAI 计划将员工数翻倍至 8000 人，这是 AI 行业进入"大兵团作战"阶段的明确信号。当技术差距缩小，执行速度和人才密度将成为决定胜负的关键。</li>
+                    <li><strong>长上下文成为新战场：</strong>xAI Grok 4.1 Fast 的 200 万 Token 上下文窗口，标志着上下文长度的军备竞赛进入新阶段。但技术能力不等于商业价值，如何在长上下文中保持注意力效率仍是未解难题。</li>
+                    <li><strong>全球 AI 监管共识形成：</strong>《国际 AI 安全报告 2026》的发布意味着 AI 安全正在从行业自律走向政府监管。对于 AI 公司，合规能力将成为核心竞争力的一部分。</li>
+                    <li><strong>版权争议持续发酵：</strong>字节跳动 Seedance 2.0 遭遇美国参议员直接施压，显示 AI 训练数据的版权问题正在从商业纠纷升级为地缘政治议题。</li>
+                    <li><strong>视频 AI 成本大幅下降：</strong>arXiv 上的 Token 压缩论文和 daVinci-MagiHuman 的开源发布，共同推动视频 AI 向实用化迈进。成本下降可能催生新的应用场景。</li>
+                </ul>
+                <div class="summary-quote">
+                    "AI 行业正在从'技术突破'阶段进入'规模扩张'和'规则制定'阶段——前者决定了谁能跑得更快，后者决定了谁能跑得更远。"
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>由 QoderWork 自动生成 | 数据截止至 2026-03-24</p>
+        <p style="margin-top: 0.5rem; opacity: 0.7;">AI 每日资讯速递</p>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

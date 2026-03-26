@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 每日资讯速递 - 2026-03-26</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#0a0e1a;--bg2:#111827;--bg3:#1a2035;--card:#151d30;--card-hover:#1a2540;
+--text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;
+--accent:#6366f1;--accent2:#818cf8;--accent3:#a78bfa;
+--green:#10b981;--yellow:#f59e0b;--red:#ef4444;--blue:#3b82f6;
+--border:#1e293b;--border2:#334155;
+--gradient:linear-gradient(135deg,#6366f1,#8b5cf6,#a855f7);
+--follow-up-bg:rgba(245,158,11,0.08);--follow-up-border:#f59e0b;
+}
+.light{
+--bg:#f8fafc;--bg2:#f1f5f9;--bg3:#e2e8f0;--card:#ffffff;--card-hover:#f8fafc;
+--text:#1e293b;--text2:#475569;--text3:#94a3b8;
+--border:#e2e8f0;--border2:#cbd5e1;
+--follow-up-bg:rgba(245,158,11,0.1);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans SC','Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;transition:all .3s}
+a{color:var(--accent2);text-decoration:none;transition:color .2s}
+a:hover{color:var(--accent3)}
+
+.container{max-width:900px;margin:0 auto;padding:20px}
+
+/* Header */
+.header{text-align:center;padding:60px 20px 40px;position:relative}
+.header::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:200px;height:200px;background:var(--gradient);opacity:.08;border-radius:50%;filter:blur(80px)}
+.date-badge{display:inline-block;background:var(--gradient);color:#fff;padding:6px 20px;border-radius:20px;font-size:13px;font-weight:600;letter-spacing:1px;margin-bottom:16px}
+.header h1{font-family:'Inter','Noto Sans SC',sans-serif;font-size:2.2em;font-weight:800;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
+.header .subtitle{color:var(--text2);font-size:14px}
+
+/* Controls */
+.controls{display:flex;justify-content:center;gap:12px;margin:20px 0 30px;flex-wrap:wrap}
+.controls button,.controls a.nav-btn{background:var(--bg3);color:var(--text2);border:1px solid var(--border);padding:8px 18px;border-radius:10px;cursor:pointer;font-size:13px;font-family:inherit;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.controls button:hover,.controls a.nav-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.theme-toggle{position:fixed;top:20px;right:20px;z-index:100;background:var(--card);border:1px solid var(--border);width:42px;height:42px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;transition:all .3s;box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.theme-toggle:hover{transform:scale(1.1)}
+
+/* Nav */
+.nav{display:flex;justify-content:center;gap:8px;margin-bottom:40px;flex-wrap:wrap}
+.nav a{padding:8px 20px;border-radius:10px;font-size:13px;font-weight:500;background:var(--bg3);border:1px solid var(--border);color:var(--text2);transition:all .2s}
+.nav a:hover,.nav a.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+/* Section */
+.section{margin-bottom:50px}
+.section-header{display:flex;align-items:center;gap:12px;margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--border)}
+.section-icon{font-size:28px}
+.section-title{font-size:1.5em;font-weight:700}
+.section-count{background:var(--accent);color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600}
+
+/* Card */
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;margin-bottom:16px;transition:all .3s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(99,102,241,.1);border-color:var(--border2)}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gradient);opacity:0;transition:opacity .3s}
+.card:hover::before{opacity:1}
+
+.card.follow-up{background:var(--follow-up-bg);border-color:var(--follow-up-border);border-left:4px solid var(--follow-up-border)}
+.follow-up-badge{display:inline-block;background:rgba(245,158,11,.15);color:var(--yellow);padding:3px 10px;border-radius:6px;font-size:11px;font-weight:600;margin-bottom:8px;border:1px solid rgba(245,158,11,.3)}
+.follow-up-context{background:rgba(245,158,11,.06);border-left:3px solid var(--yellow);padding:8px 14px;margin:10px 0;border-radius:0 8px 8px 0;font-size:13px;color:var(--text2)}
+
+.card-number{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;background:var(--gradient);color:#fff;border-radius:8px;font-size:13px;font-weight:700;margin-right:10px;flex-shrink:0}
+.card-title{font-size:1.1em;font-weight:600;margin-bottom:10px;display:flex;align-items:flex-start}
+.card-title span{flex:1}
+.card-body{color:var(--text2);font-size:14px;line-height:1.8;margin-bottom:14px}
+.card-source{font-size:12px;color:var(--text3);margin-bottom:14px}
+.card-source a{color:var(--accent2);font-weight:500}
+
+/* Commentary */
+.commentary{background:linear-gradient(135deg,rgba(99,102,241,.06),rgba(139,92,246,.06));border:1px solid rgba(99,102,241,.15);border-radius:12px;padding:16px;margin-top:14px;position:relative}
+.commentary::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:var(--gradient);border-radius:3px 0 0 3px}
+.commentary-header{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.role-tag{display:inline-block;padding:2px 8px;border-radius:6px;font-size:11px;font-weight:600;color:#fff}
+.role-investor{background:linear-gradient(135deg,#f59e0b,#d97706)}
+.role-researcher{background:linear-gradient(135deg,#3b82f6,#2563eb)}
+.role-entrepreneur{background:linear-gradient(135deg,#10b981,#059669)}
+.role-multi{background:linear-gradient(135deg,#ef4444,#6366f1)}
+.commentary-text{font-size:13.5px;color:var(--text);line-height:1.8}
+
+/* GitHub */
+.gh-meta{display:flex;flex-wrap:wrap;gap:12px;margin:10px 0;font-size:13px}
+.gh-meta-item{display:inline-flex;align-items:center;gap:5px;color:var(--text2);background:var(--bg2);padding:4px 10px;border-radius:8px;font-size:12px}
+.gh-stars{color:var(--yellow);font-weight:600}
+.gh-lang{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px}
+.gh-python{background:#3572A5}.gh-typescript{background:#3178c6}.gh-rust{background:#dea584}.gh-java{background:#b07219}
+
+/* arXiv */
+.arxiv-id{display:inline-block;background:rgba(99,102,241,.1);color:var(--accent2);padding:2px 8px;border-radius:6px;font-size:12px;font-weight:500;margin-bottom:6px}
+.arxiv-authors{color:var(--text3);font-size:13px;margin-bottom:8px}
+
+/* Summary */
+.summary-card{background:linear-gradient(135deg,var(--card),rgba(99,102,241,.05));border:2px solid var(--accent);border-radius:20px;padding:30px;margin:40px 0;position:relative;overflow:hidden}
+.summary-card::before{content:'';position:absolute;top:-50px;right:-50px;width:150px;height:150px;background:var(--gradient);opacity:.06;border-radius:50%;filter:blur(40px)}
+.summary-card h3{font-size:1.3em;margin-bottom:16px;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.summary-text{color:var(--text);line-height:1.9;font-size:14.5px}
+.summary-oneliner{margin-top:16px;padding-top:16px;border-top:1px solid var(--border);font-weight:600;color:var(--accent2);font-size:15px}
+
+/* Footer */
+.footer{text-align:center;padding:40px 20px;color:var(--text3);font-size:12px;border-top:1px solid var(--border)}
+.footer a{color:var(--accent2)}
+
+/* Animation */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.card,.summary-card{animation:fadeInUp .5s ease-out}
+
+/* Responsive */
+@media(max-width:640px){
+.container{padding:12px}
+.header{padding:40px 12px 20px}
+.header h1{font-size:1.5em}
+.card{padding:18px}
+.section-title{font-size:1.2em}
+.controls{gap:6px}
+.controls button,.controls a.nav-btn{padding:6px 12px;font-size:12px}
+}
+</style>
+</head>
+<body>
+<button class="theme-toggle" onclick="toggleTheme()" title="切换主题">🌓</button>
+
+<div class="container">
+<div class="header">
+<div class="date-badge">2026-03-26 THURSDAY</div>
+<h1>AI 每日资讯速递</h1>
+<p class="subtitle">由 QoderWork 自动生成 | 行业热点 &middot; GitHub Trending &middot; arXiv 论文</p>
+</div>
+
+<div class="nav" id="nav">
+<a href="#news" class="active">🔥 行业热点</a>
+<a href="#github">🚀 GitHub</a>
+<a href="#arxiv">📄 arXiv</a>
+<a href="#summary">📊 总结</a>
+</div>
+
+<!-- ==================== NEWS ==================== -->
+<div class="section" id="news">
+<div class="section-header">
+<span class="section-icon">🔥</span>
+<span class="section-title">行业热点</span>
+<span class="section-count">7 条</span>
+</div>
+
+<!-- News 1 -->
+<div class="card">
+<div class="card-title"><span class="card-number">1</span><span>Sanders 与 AOC 联手提出法案：暂停 AI 数据中心新建</span></div>
+<div class="card-body">美国参议员 Bernie Sanders 和众议员 Alexandria Ocasio-Cortez 于 3 月 25 日正式提出一项法案，要求在全国范围内暂停新建 AI 数据中心，直到联邦政府完成对其能源消耗、环境影响和社区影响的全面评估。Sanders 表示"不能让少数亿万富翁为了利润，让整个社区承受电力短缺和环境恶化"。</div>
+<div class="card-source">📎 <a href="https://www.theguardian.com/us-news/2026/mar/25/datacenters-bernie-sanders-aoc" target="_blank">The Guardian</a> / <a href="https://apnews.com/article/data-centers-ai-electricity-sanders-aoc-65651bd28c3d911d18eeb46cd54f4c75" target="_blank">AP News</a> / <a href="https://www.wired.com/story/new-bernie-sanders-ai-safety-bill-would-halt-data-center-construction/" target="_blank">WIRED</a></div>
+<div class="commentary">
+<div class="commentary-header"><span class="role-tag role-multi">🎯 多角度综合</span></div>
+<div class="commentary-text">从💰投资人视角看，这项法案大概率不会通过——共和党控制的国会不会在 AI 基建上踩刹车——但它制造的政策不确定性足以让部分数据中心项目融资延迟半年到一年。从🚀创业者视角看，真正的影响不在大厂，而在中小型 AI 基础设施创业公司，选址审批周期的拉长可能直接杀死几家靠速度吃饭的公司。Sanders 精准地击中了 AI 产业链最脆弱的物理环节——不是算法不是数据，而是电。</div>
+</div>
+</div>
+
+<!-- News 2 -->
+<div class="card">
+<div class="card-title"><span class="card-number">2</span><span>OpenAI 正式关停 Sora 视频生成服务</span></div>
+<div class="card-body">OpenAI 于 3 月 24 日宣布将关停旗下 AI 视频生成工具 Sora，距其 2025 年 12 月公开发布仅约 4 个月。Bloomberg 报道称 OpenAI 同时终止了与 Disney 的 Sora 合作协议。TechCrunch 的报道标题直接称 Sora 为"你手机上最诡异的 App"。</div>
+<div class="card-source">📎 <a href="https://edition.cnn.com/2026/03/24/tech/openai-sora-video-app-shutting-down" target="_blank">CNN</a> / <a href="https://www.nytimes.com/2026/03/24/technology/openai-shutting-down-sora.html" target="_blank">NYT</a> / <a href="https://www.bloomberg.com/news/articles/2026-03-24/openai-plans-to-discontinue-support-for-sora-ai-video-generator" target="_blank">Bloomberg</a></div>
+<div class="commentary">
+<div class="commentary-header"><span class="role-tag role-investor">💰 投资人视角</span></div>
+<div class="commentary-text">Sora 的关停是 OpenAI 产品战略的一次务实修正。在年烧 140 亿美元、估值需要靠 ChatGPT 订阅撑住的压力下，一个用户留存率低、内容审核成本高、变现路径模糊的视频工具就是吸血黑洞。Disney 合作的终止暗示了更深的问题——当最有想象力的内容公司也找不到怎么用你的工具，产品本身就有问题。Sora 不是死于竞争，是死于"解决方案找不到问题"。</div>
+</div>
+</div>
+
+<!-- News 3 -->
+<div class="card follow-up">
+<span class="follow-up-badge">🔄 连续跟踪</span>
+<div class="card-title"><span class="card-number">3</span><span>Anthropic 诉五角大楼案开庭，法官质疑政府动机</span></div>
+<div class="follow-up-context">前情提要：3/23 报道了 Anthropic 被五角大楼列入黑名单、员工联合声援；3/24 报道了特朗普政府的法庭辩护。今日有新进展。</div>
+<div class="card-body">加州联邦法官 Rita Lin 在听证会上公开质疑五角大楼将 Anthropic 列入供应链风险名单的动机，暗示国防部的行为"可能缺乏合理依据"。法庭披露的文件显示，五角大楼在宣布"关系终止"一周前曾告知 Anthropic 双方"几乎达成一致"，这一矛盾加剧了外界对政治干预的质疑。</div>
+<div class="card-source">📎 <a href="https://www.aljazeera.com/economy/2026/3/25/anthropics-case-against-the-pentagon-could-open-space-for-ai-regulation" target="_blank">Al Jazeera</a> / <a href="https://federalnewsnetwork.com/artificial-intelligence/2026/03/anthropic-and-pentagon-head-to-court-as-ai-firm-seeks-end-to-stigmatizing-supply-chain-risk-label/" target="_blank">Federal News Network</a></div>
+<div class="commentary">
+<div class="commentary-header"><span class="role-tag role-multi">🎯 多角度综合</span></div>
+<div class="commentary-text">三天前我们报道了这场对抗的开始，今天法官的态度基本预告了结局走向。从💰投资人视角，Anthropic 赢下官司只是时间问题，但真正的损失已经造成——"被拉黑"标签在政府采购市场的杀伤力是永久性的。从🔬科研视角，一家以"AI 安全"为理念的公司被以"国家安全"为名惩罚——这两种"安全"的冲突将定义未来十年 AI 产业与政府的关系边界。</div>
+</div>
+</div>
+
+<!-- News 4 -->
+<div class="card">
+<div class="card-title"><span class="card-number">4</span><span>路透社深度：中国 AI 实验室面临开源困境</span></div>
+<div class="card-body">Reuters Breakingviews 分析指出中国 AI 实验室正面临开源两难：开源策略帮助阿里巴巴（Qwen 系列）等快速建立全球影响力，但美国咨询机构警告中国开源 AI 正威胁美国领先地位，可能引发更严格的出口管制。同时 MiniMax 和智谱等新兴公司上市表现优于百度等老牌公司，中国 AI 生态正在重构。</div>
+<div class="card-source">📎 <a href="https://www.reuters.com/commentary/breakingviews/china-ai-labs-face-growing-open-source-dilemma-2026-03-25/" target="_blank">Reuters</a></div>
+<div class="commentary">
+<div class="commentary-header"><span class="role-tag role-investor">💰 投资人视角</span></div>
+<div class="commentary-text">中国 AI 的开源困境是经典的"成功的诅咒"——正是因为 Qwen、DeepSeek 太成功了，才引来地缘政治关注。如果开源社区被迫分裂成"中国版"和"西方版"两个生态，损失最大的是整个 AI 领域的创新速度。MiniMax 和智谱跑赢百度，说明中国 AI 市场已完成从"大厂垄断"到"创业公司主导"的代际切换——这是比任何单一技术突破都更重要的结构性变化。</div>
+</div>
+</div>
+
+<!-- News 5 -->
+<div class="card">
+<div class="card-title"><span class="card-number">5</span><span>AI 初创融资 2 个月突破 2200 亿美元，占 VC 市场 41%</span></div>
+<div class="card-body">Crunchbase 最新数据显示 AI 初创公司在 2026 年前两个月融资总额突破 2200 亿美元。TechCrunch 报道 AI 初创公司占据全球 1280 亿美元风投总额的 41%，且目前回报率良好。</div>
+<div class="card-source">📎 <a href="https://www.eenewseurope.com/en/ai-startup-funding-hits-220-billion-in-two-months/" target="_blank">eeNews Europe</a> / <a href="https://techcrunch.com/2026/03/20/ai-startups-are-eating-the-venture-industry-and-the-returns-so-far-are-good/" target="_blank">TechCrunch</a></div>
+<div class="commentary">
+<div class="commentary-header"><span class="role-tag role-investor">💰 投资人视角</span></div>
+<div class="commentary-text">2200 亿美元两个月——这个数字本身就是泡沫的最好注脚。当一个行业吸走全球 VC 市场 41% 的资金时，另外 59% 的行业正在被抽血。真正该问的不是"AI 值不值这么多钱"，而是"这些钱里有多少会变成产品收入，有多少会变成云计算账单"。当 AI 公司融的钱有 70% 花在 GPU 上，这与其说是投资 AI，不如说是间接投资了 NVIDIA。</div>
+</div>
+</div>
+
+<!-- News 6 -->
+<div class="card">
+<div class="card-title"><span class="card-number">6</span><span>GitHub 宣布 4 月 24 日起将使用 Copilot 数据训练 AI 模型</span></div>
+<div class="card-body">GitHub 在 Trending 页面顶部放置横幅通知：从 2026 年 4 月 24 日起将使用 Copilot 交互数据进行 AI 模型训练，除非用户主动选择退出（opt-out）。用户可在账户设置中管理偏好。</div>
+<div class="card-source">📎 <a href="https://github.com/settings/copilot/features" target="_blank">GitHub</a></div>
+<div class="commentary">
+<div class="commentary-header"><span class="role-tag role-entrepreneur">🚀 创业者视角</span></div>
+<div class="commentary-text">"默认使用、opt-out"的策略设计经过深思熟虑——大多数开发者不会主动改设置，这意味着 GitHub（微软）将获得海量真实编程交互数据。对竞争对手来说，这是一道几乎不可逾越的数据护城河。代码是开发者最私密的思维痕迹，GitHub 正在把这些痕迹变成商品。</div>
+</div>
+</div>
+
+<!-- News 7 -->
+<div class="card">
+<div class="card-title"><span class="card-number">7</span><span>Anduril 开始量产自主军用无人机，AI 战争范式转型</span></div>
+<div class="card-body">Anduril 创始人 Palmer Luckey 展示了自主军用无人机量产计划。BBC 和 DW 深度分析了 AI 无人机群如何将独立无人机变成"单一协同作战体"。Fox Business 称美国已准备好大规模无人机量产，标志"范式转变"。</div>
+<div class="card-source">📎 <a href="https://www.dw.com/en/military-automated-drone-warfare-artificial-intelligence/video-76441974" target="_blank">DW</a> / <a href="https://www.bbc.com/zhongwen/articles/cn78m3dldkmo/simp" target="_blank">BBC</a></div>
+<div class="commentary">
+<div class="commentary-header"><span class="role-tag role-multi">🎯 多角度综合</span></div>
+<div class="commentary-text">从💰投资人视角，Anduril 是为数不多将 AI 能力直接转化为国防采购合同的公司——变现路径比任何 SaaS 都更确定。从🔬科研视角，AI 无人机群的核心挑战不在单体智能，而在多体协同的实时通信和去中心化决策。当 AI 的"杀手级应用"变成了杀人，每一架自主无人机都是一个道德困境的物理实现。</div>
+</div>
+</div>
+</div>
+
+<!-- ==================== GITHUB ==================== -->
+<div class="section" id="github">
+<div class="section-header">
+<span class="section-icon">🚀</span>
+<span class="section-title">GitHub Trending</span>
+<span class="section-count">7 个</span>
+</div>
+
+<!-- GH 1 -->
+<div class="card">
+<div class="card-title"><span class="card-number">1</span><span>mvanhorn/last30days-skill</span></div>
+<div class="gh-meta">
+<span class="gh-meta-item"><span class="gh-stars">⭐ 7,833</span> (+1,341 today)</span>
+<span class="gh-meta-item"><span class="gh-lang gh-python"></span>Python</span>
+<span class="gh-meta-item">🔗 <a href="https://github.com/mvanhorn/last30days-skill" target="_blank">GitHub</a></span>
+</div>
+<div class="card-body">AI Agent 技能插件，可跨 Reddit、X、YouTube、HN、Polymarket 和全网搜索任意话题，综合生成有依据的研究摘要。</div>
+<div class="commentary">
+<div class="commentary-header"><span class="role-tag role-entrepreneur">🚀 创业者视角</span></div>
+<div class="commentary-text">一天 1,341 颗星说明开发者对"Agent 研究能力"有巨大未被满足的需求。它的壁垒不在代码复杂度，而在信息源覆盖广度和摘要质量。如果能稳定输出高质量摘要，接入企业 AI Agent 的市场空间巨大。</div>
+</div>
+</div>
+
+<!-- GH 2 -->
+<div class="card follow-up">
+<span class="follow-up-badge">🔄 连续跟踪</span>
+<div class="card-title"><span class="card-number">2</span><span>bytedance/deer-flow</span></div>
+<div class="follow-up-context">3/23 报道时 35,719 Stars，今日 46,445 Stars，3 天增长 30%，正式进入爆发期。</div>
+<div class="gh-meta">
+<span class="gh-meta-item"><span class="gh-stars">⭐ 46,445</span> (+3,787 today)</span>
+<span class="gh-meta-item"><span class="gh-lang gh-python"></span>Python</span>
+<span class="gh-meta-item">🔗 <a href="https://github.com/bytedance/deer-flow" target="_blank">GitHub</a></span>
+</div>
+<div class="card-body">字节跳动开源的长周期 SuperAgent 框架，支持沙箱、记忆、工具、技能、子代理和消息网关，能处理从分钟级到小时级的复杂任务。</div>
+<div class="commentary">
+<div class="commentary-header"><span class="role-tag role-entrepreneur">🚀 创业者视角</span></div>
+<div class="commentary-text">三天前 35,719，今天 46,445——三天涨 30%，这是引爆点。deer-flow 的核心卖点"从分钟到小时的长周期任务"精准击中了当前 Agent 框架最大短板。当 LangChain 还在"5 步以内"打转时，deer-flow 已经在解"50 步"的问题。这是赢者通吃的赛道。</div>
+</div>
+</div>
+
+<!-- GH 3 -->
+<div class="card">
+<div class="card-title"><span class="card-number">3</span><span>BerriAI/litellm</span></div>
+<div class="gh-meta">
+<span class="gh-meta-item"><span class="gh-stars">⭐ 40,697</span> (+301 today)</span>
+<span class="gh-meta-item"><span class="gh-lang gh-python"></span>Python</span>
+<span class="gh-meta-item">🔗 <a href="https://github.com/BerriAI/litellm" target="_blank">GitHub</a></span>
+</div>
+<div class="card-body">Python SDK + AI 代理网关，统一调用 100+ LLM API（OpenAI、Anthropic、Bedrock、Azure 等），支持成本追踪、安全护栏、负载均衡。</div>
+<div class="commentary">
+<div class="commentary-header"><span class="role-tag role-entrepreneur">🚀 创业者视角</span></div>
+<div class="commentary-text">litellm 是 AI 基础设施层的"水电煤"——不性感，但不可或缺。它的"成本追踪"功能可能比 AI 模型本身更有商业价值——当你能精确告诉 CFO 每次 API 调用花了多少钱，你就是不可替代的。</div>
+</div>
+</div>
+
+<!-- GH 4 -->
+<div class="card">
+<div class="card-title"><span class="card-number">4</span><span>ruvnet/RuView</span></div>
+<div class="gh-meta">
+<span class="gh-meta-item"><span class="gh-stars">⭐ 42,358</span> (+1,082 today)</span>
+<span class="gh-meta-item"><span class="gh-lang gh-rust"></span>Rust</span>
+<span class="gh-meta-item">🔗 <a href="https://github.com/ruvnet/RuView" target="_blank">GitHub</a></span>
+</div>
+<div class="card-body">利用普通 WiFi 信号实现实时人体姿态估计、生命体征监测和存在检测——完全不需要摄像头。基于 Rust 构建，高性能低延迟。</div>
+<div class="commentary">
+<div class="commentary-header"><span class="role-tag role-researcher">🔬 科研工作者</span></div>
+<div class="commentary-text">WiFi 感知不是新概念，但 RuView 把它工程化到"开箱即用"。4.2 万颗星说明隐私保护型感知方案有巨大市场。不过要警惕过度宣传——WiFi 人体感知精度在复杂环境下衰减严重。用 WiFi 取代摄像头听起来像科幻，但在养老院、医院等隐私敏感场景，这条路走对了。</div>
+</div>
+</div>
+
+<!-- GH 5 -->
+<div class="card">
+<div class="card-title"><span class="card-number">5</span><span>ruvnet/ruflo</span></div>
+<div class="gh-meta">
+<span class="gh-meta-item"><span class="gh-stars">⭐ 26,272</span> (+1,174 today)</span>
+<span class="gh-meta-item"><span class="gh-lang gh-typescript"></span>TypeScript</span>
+<span class="gh-meta-item">🔗 <a href="https://github.com/ruvnet/ruflo" target="_blank">GitHub</a></span>
+</div>
+<div class="card-body">面向 Claude 的多 Agent 编排平台，支持多 Agent Swarm、自治工作流，集成 RAG、Claude Code 和 Codex。企业级架构。</div>
+<div class="commentary">
+<div class="commentary-header"><span class="role-tag role-entrepreneur">🚀 创业者视角</span></div>
+<div class="commentary-text">"面向 Claude 的 Agent 编排"定位聪明——Anthropic 生态的第三方工具链是蓝海。风险在于 Anthropic 随时可能发布官方 Agent 框架，一夜之间把第三方变炮灰。这是所有平台生态创业者的宿命——你要么跑得比平台快，要么做平台不愿做的脏活。</div>
+</div>
+</div>
+
+<!-- GH 6 -->
+<div class="card">
+<div class="card-title"><span class="card-number">6</span><span>supermemoryai/supermemory</span></div>
+<div class="gh-meta">
+<span class="gh-meta-item"><span class="gh-stars">⭐ 19,255</span> (+810 today)</span>
+<span class="gh-meta-item"><span class="gh-lang gh-typescript"></span>TypeScript</span>
+<span class="gh-meta-item">🔗 <a href="https://github.com/supermemoryai/supermemory" target="_blank">GitHub</a></span>
+</div>
+<div class="card-body">为 AI 时代打造的记忆引擎和应用，极速且可扩展。提供 Memory API，让 AI Agent 拥有持久化记忆。</div>
+<div class="commentary">
+<div class="commentary-header"><span class="role-tag role-entrepreneur">🚀 创业者视角</span></div>
+<div class="commentary-text">"AI 的记忆"是 2026 年 Agent 赛道最重要的基础设施之一。记忆层的关键不是"记住多少"，而是"忘掉什么"——人类大脑的核心能力不是记忆，而是遗忘。谁先解决 AI 的"选择性遗忘"问题，谁就拿到了个人 AI 助手市场的入场券。</div>
+</div>
+</div>
+
+<!-- GH 7 -->
+<div class="card">
+<div class="card-title"><span class="card-number">7</span><span>Crosstalk-Solutions/project-nomad</span></div>
+<div class="gh-meta">
+<span class="gh-meta-item"><span class="gh-stars">⭐ 16,693</span> (+1,718 today)</span>
+<span class="gh-meta-item"><span class="gh-lang gh-typescript"></span>TypeScript</span>
+<span class="gh-meta-item">🔗 <a href="https://github.com/Crosstalk-Solutions/project-nomad" target="_blank">GitHub</a></span>
+</div>
+<div class="card-body">自给自足的离线生存计算机，集成关键工具、知识库和 AI 能力，无需网络即可使用。面向极端环境和离线场景。</div>
+<div class="commentary">
+<div class="commentary-header"><span class="role-tag role-entrepreneur">🚀 创业者视角</span></div>
+<div class="commentary-text">一天 1,718 颗星——离线 AI 生存计算机这个品类的爆发力令人意外。它触及的是一个深层焦虑：当基础设施不可靠时 AI 还能工作吗？从军事、灾难响应到偏远地区作业，离线 AI 的需求远比想象中广泛。AI 的未来不只是云端的，也是边缘的、离线的。</div>
+</div>
+</div>
+</div>
+
+<!-- ==================== ARXIV ==================== -->
+<div class="section" id="arxiv">
+<div class="section-header">
+<span class="section-icon">📄</span>
+<span class="section-title">arXiv 前沿论文</span>
+<span class="section-count">7 篇</span>
+</div>
+
+<!-- Paper 1 -->
+<div class="card">
+<div class="card-title"><span class="card-number">1</span><span>Internal Safety Collapse in Frontier Large Language Models</span></div>
+<span class="arxiv-id"><a href="https://arxiv.org/abs/2603.23509" target="_blank">2603.23509</a></span>
+<div class="arxiv-authors">Yutao Wu, Xiao Liu, Yifeng Gao 等</div>
+<div class="card-body">本文识别了前沿 LLM 中的"内部安全崩溃"（ISC）：模型越强大，安全对齐被绕过的方式就越隐蔽和多样化。使模型能够执行复杂任务的能力，反而成了安全漏洞。</div>
+<div class="commentary">
+<div class="commentary-header"><span class="role-tag role-researcher">🔬 科研工作者</span></div>
+<div class="commentary-text">模型越强安全越脆弱——这不是对齐税的问题，而是结构性悖论。你训练的"通用推理能力"和"拒绝有害请求能力"使用同一套参数空间，它们在对抗。ISC 的发现意味着"先训练能力再补安全"的范式可能走到尽头。未来的安全研究不能是补丁，必须是架构。</div>
+</div>
+</div>
+
+<!-- Paper 2 -->
+<div class="card">
+<div class="card-title"><span class="card-number">2</span><span>Beyond Masks: Deletion-Insertion Diffusion Language Models</span></div>
+<span class="arxiv-id"><a href="https://arxiv.org/abs/2603.23507" target="_blank">2603.23507</a></span>
+<div class="arxiv-authors">Fangyu Ding, Ding Ding, Sijin Chen 等</div>
+<div class="card-body">提出"删除-插入扩散语言模型"（DID），将 token 删除和插入形式化为离散扩散过程，显著提升了训练和推理效率，在非自回归文本生成上实现了突破。</div>
+<div class="commentary">
+<div class="commentary-header"><span class="role-tag role-researcher">🔬 科研工作者</span></div>
+<div class="commentary-text">删除和插入本身就是人类编辑文本的方式，比"随机 mask"更自然。如果效率数据经得起大规模验证，这可能是非自回归文本生成的转折点。在自回归已到 GPT-5 级别的今天，非自回归的实用价值取决于它能在哪些场景做到自回归做不到的事——并行生成和可控编辑值得押注。</div>
+</div>
+</div>
+
+<!-- Paper 3 -->
+<div class="card">
+<div class="card-title"><span class="card-number">3</span><span>Synthetic Mixed Training: Scaling Knowledge Beyond RAG</span></div>
+<span class="arxiv-id"><a href="https://arxiv.org/abs/2603.23562" target="_blank">2603.23562</a></span>
+<div class="arxiv-authors">Seungju Han, Konwoo Kim, Yejin Choi 等</div>
+<div class="card-body">提出"合成混合训练"（SMT），通过混合合成 QA 和文档数据，在数据受限领域将参数化知识获取效率提升到超越 RAG 的水平。</div>
+<div class="commentary">
+<div class="commentary-header"><span class="role-tag role-researcher">🔬 科研工作者</span></div>
+<div class="commentary-text">Yejin Choi 团队又出手了。核心洞察：RAG 不是万能的，有些知识应该被"烧进"参数里。SMT 的实践意义在于：当你有大量私有文档但不想每次推理都走检索时，怎么让模型"学会"这些知识。参数化知识 vs 检索知识不是二选一，而是需要平衡——这篇提供了天平的另一端。</div>
+</div>
+</div>
+
+<!-- Paper 4 -->
+<div class="card">
+<div class="card-title"><span class="card-number">4</span><span>Fast and Faithful: Real-Time Verification for RAG Systems</span></div>
+<span class="arxiv-id"><a href="https://arxiv.org/abs/2603.23508" target="_blank">2603.23508</a></span>
+<div class="arxiv-authors">Xunzhuo Liu, Bowei He, Xue Liu 等</div>
+<div class="card-body">展示了集成到生产级 RAG 管线的实时验证组件，实现全文档级别事实性检查。指出基于分块（chunk）的检查为何常常失败，并提出实用解决方案。</div>
+<div class="commentary">
+<div class="commentary-header"><span class="role-tag role-entrepreneur">🚀 创业者视角</span></div>
+<div class="commentary-text">RAG 的"幻觉问题"是阻碍企业大规模采用的头号杀手。"实时验证"如果真能不影响延迟，这就是 RAG 产品化的关键拼图。任何做企业 AI 搜索的公司都应该认真读这篇论文。RAG 的下半场竞争不是"检索得更准"，而是"回答得更可信"。</div>
+</div>
+</div>
+
+<!-- Paper 5 -->
+<div class="card">
+<div class="card-title"><span class="card-number">5</span><span>Environment Maps: Structured Representations for Long-Horizon Agents</span></div>
+<span class="arxiv-id"><a href="https://arxiv.org/abs/2603.23610" target="_blank">2603.23610</a></span>
+<div class="arxiv-authors">Yenchia Feng, Chirag Sharma, Karime Maamari</div>
+<div class="card-body">提出持久化、Agent 无关的环境表征方案，通过整合异构证据缓解长周期 Agent 在复杂软件工作流中的失败。</div>
+<div class="commentary">
+<div class="commentary-header"><span class="role-tag role-researcher">🔬 科研工作者</span></div>
+<div class="commentary-text">长周期 Agent 最大瓶颈不是推理能力，而是"环境感知的持久性"——50 步任务到第 30 步就忘了环境什么样。人类完成复杂任务不是靠记忆，而是靠地图、笔记和文档。Agent 需要的不是更大的上下文窗口，而是更好的外部记忆架构。</div>
+</div>
+</div>
+
+<!-- Paper 6 -->
+<div class="card">
+<div class="card-title"><span class="card-number">6</span><span>Can LLM Agents Be CFOs? EnterpriseArena Benchmark</span></div>
+<span class="arxiv-id"><a href="https://arxiv.org/abs/2603.23638" target="_blank">2603.23638</a></span>
+<div class="arxiv-authors">Yi Han 等</div>
+<div class="card-body">首个评估 Agent 长周期企业资源分配任务能力的基准测试。实验显示当前 LLM 面临重大挑战，距离"AI CFO"还有相当距离。</div>
+<div class="commentary">
+<div class="commentary-header"><span class="role-tag role-investor">💰 投资人视角</span></div>
+<div class="commentary-text">"LLM 能当 CFO 吗？"答案是"还不能"，但问题本身比答案更有价值。第一次把企业资源分配做成标准化 benchmark。当前表现不佳恰恰说明市场机会——谁先把分数打上去，谁就能卖出天价企业 AI 方案。CFO 不会被替代，但 CFO 的分析师团队会。</div>
+</div>
+</div>
+
+<!-- Paper 7 -->
+<div class="card">
+<div class="card-title"><span class="card-number">7</span><span>Internal Safety Collapse — LLMs Do Not Grade Essays Like Humans</span></div>
+<span class="arxiv-id"><a href="https://arxiv.org/abs/2603.23714" target="_blank">2603.23714</a></span>
+<div class="arxiv-authors">Jerin George Mathew 等</div>
+<div class="card-body">研究发现 LLM 与人类评分者一致性较弱，且模型倾向于给短文更高分——与人类评分者行为模式相反。</div>
+<div class="commentary">
+<div class="commentary-header"><span class="role-tag role-researcher">🔬 科研工作者</span></div>
+<div class="commentary-text">给所有急着用 LLM 替代人工评分的教育科技公司泼冷水——这盆冷水是必要的。"给短文打高分"暗示模型把"信息密度"当成了"质量"，而人类更看重"论证展开的充分性"。这不是 prompt 工程能修的，是模型对"什么是好写作"的理解偏差。在 AI 评估大规模部署到教育系统之前，这类研究是最后的安全网。</div>
+</div>
+</div>
+</div>
+
+<!-- ==================== SUMMARY ==================== -->
+<div id="summary">
+<div class="summary-card">
+<h3>📊 今日总结</h3>
+<div class="summary-text">
+今天的 AI 领域呈现出一个清晰的主题：<strong>边界之争</strong>。Sanders 和 AOC 的法案在画政治边界——AI 产业的物理扩张到底能走多远；Anthropic 诉五角大楼在画安全边界——AI 公司有没有权利拒绝政府；中国开源困境在画地缘边界——技术自由流通和国家利益之间的张力何时断裂；OpenAI 关停 Sora 在画产品边界——不是所有技术 demo 都配成为产品。与此同时，GitHub 上 Agent 基础设施的爆发（deer-flow 三天涨 30%、supermemory、ruflo 齐飞）和 arXiv 上安全崩溃论文的警钟形成了鲜明对比：开发者在拼命建设，研究者在拼命预警。
+</div>
+<div class="summary-oneliner">一句话：2026 年 3 月的 AI 行业正在经历一场"边界大确认"——不是技术的边界，而是权力的、伦理的、商业的边界，这些边界的位置将决定下一个十年 AI 产业的形状。</div>
+</div>
+</div>
+
+<div class="footer">
+<p>由 <a href="https://qoder.com" target="_blank">QoderWork</a> 自动生成 | 2026-03-26</p>
+<p style="margin-top:6px">数据来源：WebSearch &middot; GitHub Trending &middot; arXiv</p>
+</div>
+</div>
+
+<script>
+function toggleTheme(){document.body.classList.toggle('light');const btn=document.querySelector('.theme-toggle');btn.textContent=document.body.classList.contains('light')?'🌙':'🌓'}
+document.querySelectorAll('.nav a').forEach(a=>{a.addEventListener('click',function(){document.querySelectorAll('.nav a').forEach(x=>x.classList.remove('active'));this.classList.add('active')})});
+const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.style.opacity='1';entry.target.style.transform='translateY(0)'}})},{threshold:0.1});
+document.querySelectorAll('.card,.summary-card').forEach(card=>{card.style.opacity='0';card.style.transform='translateY(20px)';card.style.transition='opacity 0.5s ease, transform 0.5s ease';observer.observe(card)});
+</script>
+</body>
+</html>

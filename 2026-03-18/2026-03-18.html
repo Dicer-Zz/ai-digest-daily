@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 每日资讯速递 - 2026-03-18</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #0a0b14;
+  --bg-secondary: #12132a;
+  --bg-card: #181a35;
+  --bg-card-hover: #1e2045;
+  --text-primary: #e8e9f3;
+  --text-secondary: #9b9cb8;
+  --text-muted: #6b6d8a;
+  --accent-blue: #6366f1;
+  --accent-purple: #a855f7;
+  --accent-cyan: #22d3ee;
+  --accent-pink: #ec4899;
+  --accent-orange: #f97316;
+  --accent-green: #10b981;
+  --border-color: rgba(99, 102, 241, 0.15);
+  --gradient-1: linear-gradient(135deg, #6366f1, #a855f7);
+  --gradient-2: linear-gradient(135deg, #22d3ee, #6366f1);
+  --gradient-3: linear-gradient(135deg, #a855f7, #ec4899);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.15);
+}
+
+[data-theme="light"] {
+  --bg-primary: #f5f5ff;
+  --bg-secondary: #eeeef8;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f8f8ff;
+  --text-primary: #1a1a2e;
+  --text-secondary: #4a4a6a;
+  --text-muted: #8888aa;
+  --border-color: rgba(99, 102, 241, 0.12);
+  --shadow-sm: 0 2px 8px rgba(99, 102, 241, 0.08);
+  --shadow-md: 0 4px 20px rgba(99, 102, 241, 0.1);
+  --shadow-lg: 0 8px 40px rgba(99, 102, 241, 0.12);
+  --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Inter', 'Noto Sans SC', -apple-system, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--accent-blue); border-radius: 3px; }
+
+/* Header */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 11, 20, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.8rem 0;
+  transition: background 0.4s ease;
+}
+[data-theme="light"] .header {
+  background: rgba(245, 245, 255, 0.85);
+}
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.logo {
+  font-size: 1.3rem;
+  font-weight: 800;
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+}
+.date-badge {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--accent-cyan);
+  background: rgba(34, 211, 238, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  border: 1px solid rgba(34, 211, 238, 0.2);
+}
+
+/* Nav */
+.nav {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+}
+.nav a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+.nav a:hover { color: var(--text-primary); background: rgba(99, 102, 241, 0.1); }
+
+/* Theme toggle */
+.theme-toggle {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 0.4rem 0.7rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.theme-toggle:hover { border-color: var(--accent-blue); color: var(--accent-blue); }
+
+/* Hero */
+.hero {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 2rem 2rem;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.hero .powered {
+  margin-top: 0.8rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Main */
+.main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem;
+}
+
+/* Section */
+.section {
+  margin-bottom: 3.5rem;
+}
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.8rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--border-color);
+}
+.section-icon {
+  font-size: 1.6rem;
+}
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+.section-count {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background: var(--bg-secondary);
+  padding: 0.2rem 0.6rem;
+  border-radius: 10px;
+  margin-left: auto;
+}
+
+/* Card */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1.8rem;
+  margin-bottom: 1.2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
+}
+.card:hover::before { opacity: 1; }
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.card-number {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-blue);
+  background: rgba(99, 102, 241, 0.1);
+  min-width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.3px;
+}
+.card-title a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.card-title a:hover { color: var(--accent-blue); }
+
+.card-body { color: var(--text-secondary); font-size: 0.92rem; line-height: 1.75; margin-bottom: 1rem; }
+
+.card-sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+.source-tag {
+  font-size: 0.72rem;
+  color: var(--accent-cyan);
+  background: rgba(34, 211, 238, 0.08);
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid rgba(34, 211, 238, 0.15);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.source-tag:hover { background: rgba(34, 211, 238, 0.15); border-color: rgba(34, 211, 238, 0.3); }
+
+/* Commentary */
+.commentary {
+  background: rgba(99, 102, 241, 0.06);
+  border-left: 3px solid var(--accent-purple);
+  border-radius: 0 10px 10px 0;
+  padding: 1rem 1.2rem;
+  margin-top: 1rem;
+  position: relative;
+}
+.commentary-role {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent-purple);
+  background: rgba(168, 85, 247, 0.1);
+  padding: 0.15rem 0.6rem;
+  border-radius: 4px;
+  margin-bottom: 0.6rem;
+}
+.commentary p {
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.75;
+  font-style: italic;
+}
+
+/* GitHub specific */
+.gh-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+  align-items: center;
+}
+.gh-tag {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.gh-stars { color: var(--accent-orange); background: rgba(249, 115, 22, 0.1); border: 1px solid rgba(249, 115, 22, 0.2); }
+.gh-today { color: var(--accent-green); background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); }
+.gh-lang { color: var(--accent-cyan); background: rgba(34, 211, 238, 0.08); border: 1px solid rgba(34, 211, 238, 0.15); }
+
+/* Paper specific */
+.paper-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+.paper-tag {
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+}
+.paper-cat { color: var(--accent-pink); background: rgba(236, 72, 153, 0.1); border: 1px solid rgba(236, 72, 153, 0.2); }
+.paper-id { color: var(--text-muted); background: var(--bg-secondary); }
+.paper-authors {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+}
+
+/* Summary */
+.summary-card {
+  background: var(--bg-card);
+  border: 2px solid rgba(99, 102, 241, 0.2);
+  border-radius: 20px;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.summary-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-1);
+}
+.summary-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.summary-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.85;
+  margin-bottom: 1rem;
+}
+.summary-card p:last-child {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  border-top: 1px solid var(--border-color);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.footer a { color: var(--accent-blue); text-decoration: none; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 1.8rem; }
+  .header-inner { padding: 0 1rem; }
+  .main { padding: 0 1rem 3rem; }
+  .hero { padding: 2.5rem 1rem 1.5rem; }
+  .card { padding: 1.3rem; }
+  .nav { display: none; }
+  .section-title { font-size: 1.2rem; }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.card, .summary-card {
+  animation: fadeInUp 0.5s ease both;
+}
+.card:nth-child(2) { animation-delay: 0.05s; }
+.card:nth-child(3) { animation-delay: 0.1s; }
+.card:nth-child(4) { animation-delay: 0.15s; }
+.card:nth-child(5) { animation-delay: 0.2s; }
+.card:nth-child(6) { animation-delay: 0.25s; }
+.card:nth-child(7) { animation-delay: 0.3s; }
+.card:nth-child(8) { animation-delay: 0.35s; }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="header-inner">
+    <div class="header-left">
+      <span class="logo">AI Daily Digest</span>
+      <span class="date-badge">2026-03-18</span>
+    </div>
+    <nav class="nav">
+      <a href="#news">🔥 行业热点</a>
+      <a href="#github">🚀 GitHub</a>
+      <a href="#arxiv">📄 论文</a>
+      <a href="#summary">📊 总结</a>
+    </nav>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">
+      <span id="theme-icon">☀️</span>
+    </button>
+  </div>
+</header>
+
+<!-- Hero -->
+<div class="hero">
+  <h1>AI 每日资讯速递</h1>
+  <p>汇聚行业热点、GitHub Trending 与 arXiv 前沿论文，每日一份 AI 领域全景扫描</p>
+  <p class="powered">由 QoderWork 自动生成 · 2026-03-18</p>
+</div>
+
+<!-- Main Content -->
+<div class="main">
+
+  <!-- 行业热点 -->
+  <section class="section" id="news">
+    <div class="section-header">
+      <span class="section-icon">🔥</span>
+      <h2 class="section-title">行业热点</h2>
+      <span class="section-count">8 条</span>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-number">01</span>
+        <h3 class="card-title">Meta 与 Nebius 签署 270 亿美元 AI 基础设施协议</h3>
+      </div>
+      <p class="card-body">Meta 与荷兰数据中心公司 Nebius 达成一项为期五年、价值高达 270 亿美元的 AI 基础设施合作协议。Nebius 将从 2026 年初开始为 Meta 提供 120 亿美元的专用 AI 计算容量，以及另外 150 亿美元的可选扩展。这是 Meta 在自建数据中心之外最大规模的外部基础设施采购。</p>
+      <div class="card-sources">
+        <a href="https://www.reuters.com/technology/nebius-signs-ai-capacity-deal-with-meta-2026-03-16/" class="source-tag" target="_blank">Reuters</a>
+        <a href="https://www.cnbc.com/2026/03/16/meta-nebius-ai-infrastructure.html" class="source-tag" target="_blank">CNBC</a>
+        <a href="https://www.bloomberg.com/news/articles/2026-03-16/meta-to-spend-up-to-27-billion-on-ai-infrastructure-from-nebius" class="source-tag" target="_blank">Bloomberg</a>
+      </div>
+      <div class="commentary">
+        <div class="commentary-role">💰 投资人视角</div>
+        <p>Zuckerberg 终于想明白了一件事：自己建不如外包快。270 亿美元看似天价，但对比 Meta 每季度数百亿的 AI 资本支出，这笔交易本质上是用确定性换时间窗口。Nebius 从一家"前 Yandex 资产"摇身一变成为 AI 基础设施新贵，靠的不是技术领先，而是在欧洲拿地建设的速度。真正的赢家是 NVIDIA——不管谁建数据中心，GPU 的订单都流向同一个地方。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-number">02</span>
+        <h3 class="card-title">Micron 财报超预期：AI 需求推动创纪录 239 亿美元营收</h3>
+      </div>
+      <p class="card-body">美光科技发布 2026 财年 Q2 财报，营收达到创纪录的 239 亿美元，超出市场预期。公司同时大幅上调全年资本支出预期，HBM（高带宽内存）需求持续飙升，AI 训练和推理对存储芯片的拉动力远超此前预估。</p>
+      <div class="card-sources">
+        <a href="https://www.reuters.com/world/china/micron-beats-quarterly-revenue-estimates-2026-03-18/" class="source-tag" target="_blank">Reuters</a>
+        <a href="https://www.bloomberg.com/news/articles/2026-03-18/micron-gives-upbeat-forecast-after-demand-soars-for-memory-chips" class="source-tag" target="_blank">Bloomberg</a>
+        <a href="https://www.investing.com/news/company-news/micron-q2-2026-slides-ai-demand-drives-record-239b-revenue-93CH-4569530" class="source-tag" target="_blank">Investing.com</a>
+      </div>
+      <div class="commentary">
+        <div class="commentary-role">💰 投资人视角</div>
+        <p>AI 淘金热中卖铲子的人又一次证明了自己。HBM 就是这一轮 AI 军备竞赛中的"铲子"——不管你训的是 GPT-6 还是 Gemini 4，都得从 Micron 和 SK Hynix 手里买内存。资本支出上调意味着 Micron 押注 AI 需求至少还有两年高增长期。但要警惕的是：半导体的周期性从未消失，今天的产能扩张可能是后天过剩的种子。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-number">03</span>
+        <h3 class="card-title">OpenAI 通过 AWS 扩大政府 AI 业务</h3>
+      </div>
+      <p class="card-body">OpenAI 已与 Amazon Web Services (AWS) 签署新合作协议，通过 AWS 的政府云基础设施向美国联邦机构销售 AI 服务。此举标志着 OpenAI 正式大规模进军政府市场，利用 AWS 已有的 FedRAMP 和安全认证来加速部署。</p>
+      <div class="card-sources">
+        <a href="https://techcrunch.com/2026/03/17/openai-expands-government-footprint-with-aws-deal/" class="source-tag" target="_blank">TechCrunch</a>
+        <a href="https://www.reuters.com/business/retail-consumer/openai-sell-ai-us-agencies-through-amazon-cloud-unit-information-reports-2026-03-17/" class="source-tag" target="_blank">Reuters</a>
+      </div>
+      <div class="commentary">
+        <div class="commentary-role">💰 投资人视角</div>
+        <p>OpenAI 这步棋走得精妙：不自建政府合规体系，而是借 AWS 的壳。政府市场是 AI 公司梦寐以求的"稳定现金流引擎"——合同长、粘性高、价格不敏感。但隐患在于：OpenAI 和 Microsoft 的关系因 AWS 合作正变得越来越微妙。一边是最大投资方，一边是最大竞争对手的云平台，Sam Altman 正走在一根越来越细的钢丝上。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-number">04</span>
+        <h3 class="card-title">北京 AI 和机器人博览会：医疗智能机器人成焦点</h3>
+      </div>
+      <p class="card-body">2026 年北京国际人工智能应用与机器人博览会于 3 月 18 日举行，重点展示了面向医疗健康领域的智能机器人。展品涵盖执行武术动作的人形机器人、手术辅助机器人、康复护理机器人等。</p>
+      <div class="card-sources">
+        <a href="https://www.euronews.com/video/2026/03/18/china-beijing-ai-and-robotics-expo-highlights-healthcare-focused-smart-robots" class="source-tag" target="_blank">Euronews</a>
+        <a href="https://www.africanews.com/2026/03/18/china-beijing-ai-and-robotics-expo-highlights-healthcare-focused-smart-robots/" class="source-tag" target="_blank">AfricaNews</a>
+      </div>
+      <div class="commentary">
+        <div class="commentary-role">🎯 多角度综合视角</div>
+        <p>从投资人角度看，中国的 AI 机器人赛道热闹但分散，大量公司在"展会型创新"阶段。但从创业者角度看，医疗机器人是少数真正有 PMF 的方向：老龄化社会 + 医护人员短缺 = 刚需。关键不在于机器人能不能打太极拳，而在于它能不能在凌晨三点帮护士翻一个 80 公斤的病人。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-number">05</span>
+        <h3 class="card-title">Thoma Bravo 联合创始人警告：AI 将大规模颠覆软件公司</h3>
+      </div>
+      <p class="card-body">私募巨头 Thoma Bravo 联合创始人 Orlando Bravo 公开表示"公开市场上许多软件公司将被 AI 颠覆"，部分软件公司应该接受估值下调。他认为 AI 正在从根本上改变软件行业的竞争格局。</p>
+      <div class="card-sources">
+        <a href="https://www.cnbc.com/2026/03/17/orlando-bravo-software-ai-valuation-cut.html" class="source-tag" target="_blank">CNBC</a>
+        <a href="https://seekingalpha.com/news/4565555-orlando-bravo-says-many-software-companies-will-be-disrupted-by-ai" class="source-tag" target="_blank">Seeking Alpha</a>
+      </div>
+      <div class="commentary">
+        <div class="commentary-role">💰 投资人视角</div>
+        <p>Orlando Bravo 管着 1600 亿美元的软件资产，他说软件要被颠覆，本质是在说"我要趁低价买入"。但他指出的问题是真实的：当 AI Agent 能自动完成过去需要十个 SaaS 工具串联的工作流时，中间那些"管道工"软件公司的存在意义就要打上问号。SaaS 的护城河从来不是技术，而是迁移成本——但 AI 正在让迁移成本趋近于零。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-number">06</span>
+        <h3 class="card-title">AI 创业融资两个月突破 2200 亿美元</h3>
+      </div>
+      <p class="card-body">据 Crunchbase 数据，2026 年前两个月 AI 初创公司融资总额达到 2200 亿美元，远超 2025 年全年水平。其中 OpenAI 的 1100 亿美元轮融资占据半壁江山。</p>
+      <div class="card-sources">
+        <a href="https://www.eenewseurope.com/en/ai-startup-funding-hits-220-billion-in-two-months/" class="source-tag" target="_blank">eeNews Europe</a>
+        <a href="https://news.crunchbase.com/venture/record-setting-global-funding-february-2026-openai-anthropic/" class="source-tag" target="_blank">Crunchbase</a>
+      </div>
+      <div class="commentary">
+        <div class="commentary-role">💰 投资人视角</div>
+        <p>2200 亿美元，两个月。去掉 OpenAI 那 1100 亿，剩下的 1100 亿仍然是天文数字。这不是风险投资，这是主权级别的基础设施竞赛。但冷静想：这些钱大部分最终流向了 NVIDIA 的 GPU、电力公司的电费、和数据中心的地租。当潮水退去，只有那些真正找到商业闭环的公司才能活下来——而这个比例不会超过 5%。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-number">07</span>
+        <h3 class="card-title">Morgan Stanley 预测 2026 上半年将出现"重大 AI 突破"</h3>
+      </div>
+      <p class="card-body">摩根士丹利发布报告，预测 2026 年上半年将出现"变革性 AI"突破，AI 模型将实现自我改进能力，市场对此准备不足。报告估计 AI 基础设施的累计投资将接近 3 万亿美元。</p>
+      <div class="card-sources">
+        <a href="https://fortune.com/2026/03/13/elon-musk-morgan-stanley-ai-leap-2026/" class="source-tag" target="_blank">Fortune</a>
+        <a href="https://www.businessinsider.com/ai-disruption-trade-stock-market-investing-strategy-llms-morgan-stanley-2026-3" class="source-tag" target="_blank">Business Insider</a>
+      </div>
+      <div class="commentary">
+        <div class="commentary-role">🎯 多角度综合视角</div>
+        <p>投行的预测向来是"先射箭再画靶"。但"3 万亿美元累计投入"这个数字倒是实打实的。从工程师角度看，当前 LLM 的 scaling law 确实在趋近瓶颈，真正的突破不太可能来自"更大的模型"，更可能来自架构创新或者新的训练范式。华尔街总是高估短期、低估长期——但这一次他们可能连方向都猜错了。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-number">08</span>
+        <h3 class="card-title">GPT-5.4 发布：百万 token 上下文窗口，统一编码能力</h3>
+      </div>
+      <p class="card-body">OpenAI 于 3 月 5 日发布 GPT-5.4，将 GPT-5.3 Codex 的编码能力整合到统一模型中，并实现了 100 万 token 的上下文窗口——这是目前商用模型中最大的。GPT-5.4 还支持 Computer Use 能力。</p>
+      <div class="card-sources">
+        <a href="https://www.mindstudio.ai/blog/what-is-gpt-5-4-openai-flagship-model" class="source-tag" target="_blank">MindStudio</a>
+        <a href="https://milvus.io/ai-quick-reference/whats-new-in-gpt-54-compared-to-previous-versions" class="source-tag" target="_blank">Milvus</a>
+      </div>
+      <div class="commentary">
+        <div class="commentary-role">🔬 科研工作者视角</div>
+        <p>百万 token 上下文窗口的意义不在于你能塞进去多少文本，而在于它开启了一类全新的应用范式。但科研人员需要追问的是：长上下文的"有效注意力"到底能覆盖多远？100 万 token 的窗口不等于 100 万 token 的理解力。Computer Use 的加入让 GPT-5.4 向通用数字工作者又近了一步，但离 AGI 的距离，可能比 OpenAI 的营销团队暗示的要远得多。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GitHub Trending -->
+  <section class="section" id="github">
+    <div class="section-header">
+      <span class="section-icon">🚀</span>
+      <h2 class="section-title">GitHub Trending</h2>
+      <span class="section-count">7 个项目</span>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-number">01</span>
+        <h3 class="card-title"><a href="https://github.com/obra/superpowers" target="_blank">obra / superpowers</a></h3>
+      </div>
+      <div class="gh-meta">
+        <span class="gh-tag gh-stars">⭐ 97,164</span>
+        <span class="gh-tag gh-today">📈 +4,089 today</span>
+        <span class="gh-tag gh-lang">Shell</span>
+      </div>
+      <p class="card-body">一个 Agent 技能框架和软件开发方法论。提供结构化的方式来组织、复用和共享 AI Agent 的"技能"，让 Agent 驱动的开发工作流更加系统化和可靠。</p>
+      <div class="commentary">
+        <div class="commentary-role">🚀 创业者视角</div>
+        <p>4089 星一天，直奔 10 万大关。这不是一个普通的开源工具——它正在定义"AI 辅助开发"的工作流标准。核心洞察是对的：AI Agent 的能力瓶颈不在模型本身，而在于如何把经验沉淀为可复用的"技能"。谁掌握了技能标准，谁就掌握了 Agent 时代的 npm。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-number">02</span>
+        <h3 class="card-title"><a href="https://github.com/jarrodwatts/claude-hud" target="_blank">jarrodwatts / claude-hud</a></h3>
+      </div>
+      <div class="gh-meta">
+        <span class="gh-tag gh-stars">⭐ 7,684</span>
+        <span class="gh-tag gh-today">📈 +1,038 today</span>
+        <span class="gh-tag gh-lang">JavaScript</span>
+      </div>
+      <p class="card-body">一个 Claude Code 插件，提供可视化 HUD 面板，实时显示上下文使用量、活跃工具、运行中的 Agent 和 Todo 进度等信息。</p>
+      <div class="commentary">
+        <div class="commentary-role">🚀 创业者视角</div>
+        <p>这个项目击中了 AI 编程工具最大的痛点：不透明。当 Agent 在后台疯狂消耗 token 时，开发者完全是瞎子。claude-hud 做的事情很简单但极其必要——给黑盒装上仪表盘。千星一天说明开发者社区对"AI 可观测性"的需求是真实的。下一步自然是：不仅看得见，还要能控制。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-number">03</span>
+        <h3 class="card-title"><a href="https://github.com/unslothai/unsloth" target="_blank">unslothai / unsloth</a></h3>
+      </div>
+      <div class="gh-meta">
+        <span class="gh-tag gh-stars">⭐ 56,142</span>
+        <span class="gh-tag gh-today">📈 +1,005 today</span>
+        <span class="gh-tag gh-lang">Python</span>
+      </div>
+      <p class="card-body">统一的 Web UI，用于本地训练和运行 Qwen、DeepSeek、gpt-oss、Gemma 等开源模型。以极致的效率优化著称。</p>
+      <div class="commentary">
+        <div class="commentary-role">🚀 创业者视角</div>
+        <p>Unsloth 的增长曲线堪称开源 AI 领域的 "Tailwind CSS"——用极致的开发者体验吃掉了整个赛道。5.6 万星不是虚荣指标，而是社区用脚投票的结果。但商业化是个问号——当基础模型越来越便宜、API 越来越好用，"本地微调"的 TAM 会不会反而在缩小？</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-number">04</span>
+        <h3 class="card-title"><a href="https://github.com/langchain-ai/open-swe" target="_blank">langchain-ai / open-swe</a></h3>
+      </div>
+      <div class="gh-meta">
+        <span class="gh-tag gh-stars">⭐ 6,611</span>
+        <span class="gh-tag gh-today">📈 +481 today</span>
+        <span class="gh-tag gh-lang">Python</span>
+      </div>
+      <p class="card-body">LangChain 团队推出的开源异步编码 Agent。定位为 SWE-bench 任务的开放解决方案，支持异步执行 Bug 修复、功能实现等软件工程任务。</p>
+      <div class="commentary">
+        <div class="commentary-role">🚀 创业者视角</div>
+        <p>LangChain 团队出手做 SWE Agent，是在抢占"AI 编码"赛道的基础设施位置。开源 + 异步是聪明的定位。但 SWE Agent 赛道已经极度拥挤——Devin、Cursor、Windsurf、OpenHands——open-swe 需要证明自己不只是一个 benchmark 刷分工具，而是真能在生产环境用起来。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-number">05</span>
+        <h3 class="card-title"><a href="https://github.com/newton-physics/newton" target="_blank">newton-physics / newton</a></h3>
+      </div>
+      <div class="gh-meta">
+        <span class="gh-tag gh-stars">⭐ 3,023</span>
+        <span class="gh-tag gh-today">📈 +26 today</span>
+        <span class="gh-tag gh-lang">Python</span>
+      </div>
+      <p class="card-body">基于 NVIDIA Warp 的开源 GPU 加速物理模拟引擎，专为机器人研究者和仿真研究者设计。</p>
+      <div class="commentary">
+        <div class="commentary-role">🔬 科研工作者视角</div>
+        <p>机器人仿真引擎一直是具身智能的基础设施短板。Newton 选择了 NVIDIA Warp 作为底层，天然适配 Isaac Sim 生态。对于做 sim-to-real 的研究者来说，一个好用的开源物理引擎比十篇论文更有价值。但 3000 星的量级说明这还是个小众工具——具身智能要想出圈，还需要更长的时间。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-number">06</span>
+        <h3 class="card-title"><a href="https://github.com/alibaba/higress" target="_blank">alibaba / higress</a></h3>
+      </div>
+      <div class="gh-meta">
+        <span class="gh-tag gh-stars">⭐ 7,829</span>
+        <span class="gh-tag gh-today">📈 +20 today</span>
+        <span class="gh-tag gh-lang">Go</span>
+      </div>
+      <p class="card-body">阿里巴巴开源的 AI Native API Gateway。支持 LLM 路由、Token 级别的流量控制、多模型负载均衡、AI 可观测性等功能。</p>
+      <div class="commentary">
+        <div class="commentary-role">🚀 创业者视角</div>
+        <p>当所有人都在做 AI 应用的时候，阿里悄悄把 AI 时代的"入口"给做了。API Gateway 听起来不性感，但它是每一个 AI 应用的流量必经之路。Token 级别的流控、多模型路由——这些都是企业客户真金白银需要的功能。在 AI 的世界里，管道公司往往活得最久。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-number">07</span>
+        <h3 class="card-title"><a href="https://github.com/xszyou/Fay" target="_blank">xszyou / Fay</a></h3>
+      </div>
+      <div class="gh-meta">
+        <span class="gh-tag gh-stars">⭐ 12,540</span>
+        <span class="gh-tag gh-today">📈 +9 today</span>
+        <span class="gh-tag gh-lang">Python</span>
+      </div>
+      <p class="card-body">帮助数字人（2.5D、3D、移动端、PC、Web）或大语言模型连通业务系统的 Agent 框架。支持 OpenAI 兼容接口和 DeepSeek。</p>
+      <div class="commentary">
+        <div class="commentary-role">🚀 创业者视角</div>
+        <p>数字人 + Agent 是一个在中国市场特别有想象力的组合。Fay 做的是中间层连接器，让 LLM 能驱动数字人形象与业务系统交互。1.2 万星说明市场需求真实存在。但数字人赛道最大的悖论是：用户真的在乎和一个虚拟形象说话吗？形式大于内容的产品往往走不远。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- arXiv 论文 -->
+  <section class="section" id="arxiv">
+    <div class="section-header">
+      <span class="section-icon">📄</span>
+      <h2 class="section-title">arXiv 前沿论文</h2>
+      <span class="section-count">8 篇</span>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-number">01</span>
+        <h3 class="card-title"><a href="https://arxiv.org/abs/2603.18000" target="_blank">AgentFactory: A Self-Evolving Framework Through Executable Subagent Accumulation and Reuse</a></h3>
+      </div>
+      <div class="paper-meta">
+        <span class="paper-tag paper-cat">cs.AI</span>
+        <span class="paper-tag paper-id">2603.18000</span>
+      </div>
+      <p class="paper-authors">Zhang Zhang, Shuqi Lu, Hongjin Qian, Di He, Zheng Liu</p>
+      <p class="card-body">构建基于 LLM 的 Agent 愈发重要。现有方法主要将成功经验记录为文本提示或反思。本文提出 AgentFactory，将成功任务解决方案保存为可执行的子 Agent 代码，这些子 Agent 基于执行反馈持续优化，成为纯 Python 代码形式的可移植技能库。</p>
+      <div class="commentary">
+        <div class="commentary-role">🔬 科研工作者视角</div>
+        <p>这篇论文切中了 Agent 研究的核心痛点：经验如何有效沉淀？之前的方法把经验存成文本 prompt，本质上是"口头经验"。AgentFactory 把经验固化为可执行代码，这是从"叙事性记忆"到"程序性记忆"的质变。Agent 的未来不是一个超级大脑，而是无数个小而专的子 Agent 的协作网络。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-number">02</span>
+        <h3 class="card-title"><a href="https://arxiv.org/abs/2603.18004" target="_blank">Unified Spatio-Temporal Token Scoring for Efficient Video VLMs</a></h3>
+      </div>
+      <div class="paper-meta">
+        <span class="paper-tag paper-cat">cs.CV</span>
+        <span class="paper-tag paper-cat">cs.AI</span>
+        <span class="paper-tag paper-cat">cs.LG</span>
+        <span class="paper-tag paper-id">2603.18004</span>
+      </div>
+      <p class="paper-authors">Jianrui Zhang, Yue Yang, Rohun Tripathi 等</p>
+      <p class="card-body">Token 剪枝对提升视觉-语言模型效率至关重要。本文提出 STTS，在 ViT 和 LLM 中统一剪枝 50% 视觉 token，训练和推理效率提升 62%，13 个视频 QA 任务平均性能仅下降 0.7%。</p>
+      <div class="commentary">
+        <div class="commentary-role">🔬 科研工作者视角</div>
+        <p>62% 的效率提升只换来 0.7% 的性能损失，这个 trade-off 在工业界是秒批的。对于做视频理解产品的团队来说，这可能直接把推理成本砍掉一半。简单方法解决复杂问题，这才是好的工程研究。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-number">03</span>
+        <h3 class="card-title"><a href="https://arxiv.org/abs/2603.17973" target="_blank">TDAD: Test-Driven Agentic Development</a></h3>
+      </div>
+      <div class="paper-meta">
+        <span class="paper-tag paper-cat">cs.SE</span>
+        <span class="paper-tag paper-cat">cs.AI</span>
+        <span class="paper-tag paper-id">2603.17973</span>
+      </div>
+      <p class="paper-authors">Pepe Alonso</p>
+      <p class="card-body">AI 编码 Agent 经常引入回归 Bug。TDAD 结合 AST 代码-测试图构建和加权影响分析，将测试级回归减少 70%。意外发现：TDD 提示反而增加了回归，表明小模型从上下文信息中获益更多。</p>
+      <div class="commentary">
+        <div class="commentary-role">🔬 科研工作者视角</div>
+        <p>最大贡献不是 TDAD 本身，而是那个"意外发现"：告诉小模型"该怎么做 TDD"反而有害，不如直接告诉它"哪些测试需要验证"。这个结论对整个 AI Agent 工具设计领域都有指导意义——上下文信息 &gt; 程序化指令。回归减少 70% 是硬指标，这是生产环境必须集成的安全网。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-number">04</span>
+        <h3 class="card-title"><a href="https://arxiv.org/abs/2603.17942" target="_blank">Efficient Training-Free Multi-Token Prediction via Embedding-Space Probing</a></h3>
+      </div>
+      <div class="paper-meta">
+        <span class="paper-tag paper-cat">cs.CL</span>
+        <span class="paper-tag paper-id">2603.17942</span>
+      </div>
+      <p class="paper-authors">Raghavv Goel, Mukul Gagrani, Mingu Lee, Chris Lott</p>
+      <p class="card-body">LLM 虽只训练了 next-token 预测，却潜藏着多 token 预测能力。通过在嵌入空间中插入 mask token 来探测 LLM，无需修改权重即可并行预测未来 token。吞吐量提升高达 15-19%。</p>
+      <div class="commentary">
+        <div class="commentary-role">🔬 科研工作者视角</div>
+        <p>"四两拨千斤"的论文。不训练、不改权重、不要额外模型，只靠在 embedding 空间里插 mask token 就能提速 15-19%。论文还发现 decoder 层会自然地将 mask-token 表征对齐到 next-token 状态，暗示 Transformer 的内部表征远比我们理解的更有结构性。免费午餐虽然少见，但偶尔确实存在。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-number">05</span>
+        <h3 class="card-title"><a href="https://arxiv.org/abs/2603.17891" target="_blank">RAMP: Reinforcement Adaptive Mixed Precision Quantization</a></h3>
+      </div>
+      <div class="paper-meta">
+        <span class="paper-tag paper-cat">cs.LG</span>
+        <span class="paper-tag paper-cat">cs.AI</span>
+        <span class="paper-tag paper-id">2603.17891</span>
+      </div>
+      <p class="paper-authors">Arpit Singh Gautam, Saurabh Jha</p>
+      <p class="card-body">用 Soft Actor-Critic RL 框架学习每层比特宽度分配。在 Llama 2 7B 上以 3.68GB（3.65 有效比特）达到 5.54 困惑度，超越统一 4-bit AWQ。策略可零样本迁移到 13B 和 Mistral 7B。</p>
+      <div class="commentary">
+        <div class="commentary-role">🔬 科研工作者视角</div>
+        <p>用 RL 做量化比特分配，思路很 elegant。核心发现"量化敏感度主要是架构性的"意味着一个模型上学到的量化策略可以直接用到其他模型上。3.65 有效比特超过 4-bit AWQ，对做 Edge AI 的团队来说，RAMP 可能是下一代量化工具链的核心算法。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-number">06</span>
+        <h3 class="card-title"><a href="https://arxiv.org/abs/2603.17787" target="_blank">Governed Memory: A Production Architecture for Multi-Agent Workflows</a></h3>
+      </div>
+      <div class="paper-meta">
+        <span class="paper-tag paper-cat">cs.AI</span>
+        <span class="paper-tag paper-cat">cs.CL</span>
+        <span class="paper-tag paper-cat">cs.MA</span>
+        <span class="paper-tag paper-id">2603.17787</span>
+      </div>
+      <p class="paper-authors">Hamed Taheri</p>
+      <p class="card-body">企业 AI 部署了大量 Agent 节点却缺乏共享内存和统一治理。本文提出 Governed Memory 架构，实现 99.6% 事实召回率、92% 治理路由精度、50% token 削减，及零跨实体泄漏。已在 Personize.ai 生产环境部署。</p>
+      <div class="commentary">
+        <div class="commentary-role">🚀 创业者视角</div>
+        <p>Multi-Agent 系统最被忽视的问题终于有人认真解决了。99.6% 的事实召回 + 零跨实体泄漏是工程级别的硬指标。Multi-Agent 系统要从玩具走向生产，"治理"是绕不过去的一关。这篇论文可能成为这个领域的基础参考架构。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-number">07</span>
+        <h3 class="card-title"><a href="https://arxiv.org/abs/2603.17884" target="_blank">DebugLM: Learning Traceable Training Data Provenance for LLMs</a></h3>
+      </div>
+      <div class="paper-meta">
+        <span class="paper-tag paper-cat">cs.CL</span>
+        <span class="paper-tag paper-id">2603.17884</span>
+      </div>
+      <p class="paper-authors">Wenjie Jacky Mo, Qin Liu, Xiaofei Wen 等</p>
+      <p class="card-body">LLM 开发者缺乏定位导致特定行为的具体数据的方法。DebugLM 为 LLM 内置数据溯源能力，让模型显式追踪行为到特定训练数据源，并支持测试时的定向修复——无需重训或修改参数。</p>
+      <div class="commentary">
+        <div class="commentary-role">🔬 科研工作者视角</div>
+        <p>这篇论文解决的是 LLM 工程化的核心问题：当模型出了问题，到底是哪批训练数据惹的祸？不重训就能"关闭"某个数据源的影响，对企业级 LLM 部署意义巨大。发现模型输出有版权风险？不用重训就能定向屏蔽。这可能是 LLM 合规领域的杀手级技术。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-number">08</span>
+        <h3 class="card-title"><a href="https://arxiv.org/abs/2603.17829" target="_blank">CodeScout: An Effective Recipe for Reinforcement Learning of Code Search Agents</a></h3>
+      </div>
+      <div class="paper-meta">
+        <span class="paper-tag paper-cat">cs.SE</span>
+        <span class="paper-tag paper-cat">cs.AI</span>
+        <span class="paper-tag paper-cat">cs.CL</span>
+        <span class="paper-tag paper-id">2603.17829</span>
+      </div>
+      <p class="paper-authors">Lintang Sutawika, Aditya Bharat Soni 等</p>
+      <p class="card-body">通过有效的 RL 策略，只配备标准 Unix 终端的编码 Agent 就能达到强大的代码搜索性能。在 SWE-Bench 三个基准上持续优于 2-18 倍大的 LLM，有时接近 Claude Sonnet 的性能。</p>
+      <div class="commentary">
+        <div class="commentary-role">🔬 科研工作者视角</div>
+        <p>反直觉但重要的信息：你不需要给 Agent 装一堆花哨的静态分析工具，一个 Unix 终端 + 好的 RL 训练策略就够了。"工具简单 + 策略聪明"的范式比"堆料"更有效。对于做 AI 编程助手的团队：与其设计复杂的工具链，不如在 RL 训练上多花功夫。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 今日总结 -->
+  <section class="section" id="summary">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <h2 class="section-title">今日总结</h2>
+    </div>
+    <div class="summary-card">
+      <h3>基础设施疯狂扩张，应用层急剧分化</h3>
+      <p>2026 年 3 月 18 日的 AI 领域呈现出鲜明的二元特征。Meta 270 亿美元的基础设施订单和 Micron 创纪录的营收，证明算力军备竞赛仍在全速推进；OpenAI 借道 AWS 进入政府市场，标志着 AI 商业化的战场正从消费端扩展到公共部门。</p>
+      <p>GitHub Trending 上，superpowers（Agent 技能框架）的爆发式增长和 claude-hud（AI 可观测性工具）的崛起，揭示了开发者社区的新共识：AI 编程的下一个瓶颈不是模型能力，而是工作流管理和透明度。</p>
+      <p>arXiv 论文方面，AgentFactory 的"可执行子 Agent"范式、TDAD 的"上下文信息优于程序化指令"发现、以及 DebugLM 的数据溯源能力，共同指向一个趋势：AI 系统正在从"能跑起来"走向"能管得住"。</p>
+      <p>一句话总结：2026 年的 AI 不缺钱、不缺模型、不缺算力——缺的是让这一切可靠运转的"基础设施中间层"。谁先填上这个空白，谁就能在下一轮洗牌中站稳脚跟。</p>
+    </div>
+  </section>
+
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>由 <a href="https://qoder.com" target="_blank">QoderWork</a> 自动生成 · 数据截至 2026-03-18</p>
+  <p style="margin-top: 0.5rem;">新闻来源均为公开报道，论文来自 arXiv 预印本平台，GitHub 数据来自 GitHub Trending</p>
+</footer>
+
+<script>
+function toggleTheme() {
+  const body = document.body;
+  const icon = document.getElementById('theme-icon');
+  if (body.getAttribute('data-theme') === 'light') {
+    body.removeAttribute('data-theme');
+    icon.textContent = '☀️';
+  } else {
+    body.setAttribute('data-theme', 'light');
+    icon.textContent = '🌙';
+  }
+}
+
+// Smooth scroll for nav links
+document.querySelectorAll('.nav a').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+// Intersection Observer for cards animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.card, .summary-card').forEach(card => {
+  observer.observe(card);
+});
+</script>
+
+</body>
+</html>
