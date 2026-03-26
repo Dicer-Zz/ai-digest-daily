@@ -4,9 +4,10 @@ export default defineConfig({
   lang: 'zh-CN',
   title: 'AI 每日资讯速递',
   description: '每天 AI 领域热点新闻、GitHub Trending 和 arXiv 前沿论文',
+  base: '/ai-digest-daily/',
 
   head: [
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/ai-digest-daily/favicon.svg' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
     ['link', { href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap', rel: 'stylesheet' }],
