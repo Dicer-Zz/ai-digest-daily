@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue'
+import { withBase } from 'vitepress'
 import { data as posts } from '../posts.data.ts'
 
 const allTags = computed(() => {
@@ -59,7 +60,7 @@ function getTagClass(tag) {
         <span class="results-count">{{ filteredPosts.length }} 篇</span>
       </h2>
       <div class="results-list">
-        <a v-for="post in filteredPosts" :key="post.url" :href="post.url" class="result-item">
+        <a v-for="post in filteredPosts" :key="post.url" :href="withBase(post.url)" class="result-item">
           <span class="result-date">{{ post.frontmatter.date }}</span>
           <span class="result-title">{{ post.frontmatter.title || 'AI 每日资讯速递' }}</span>
         </a>

@@ -1,5 +1,6 @@
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed } from 'vue'
+import { withBase } from 'vitepress'
 import { data as posts } from '../posts.data.ts'
 
 const selectedTag = ref('')
@@ -75,7 +76,7 @@ function getTagClass(tag) {
       <a
         v-for="post in filteredPosts"
         :key="post.url"
-        :href="post.url"
+        :href="withBase(post.url)"
         class="post-card"
       >
         <div class="post-date">{{ formatDate(post.frontmatter.date) }}</div>

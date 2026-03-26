@@ -1,5 +1,6 @@
 <script setup>
 import { computed } from 'vue'
+import { withBase } from 'vitepress'
 import { data as posts } from '../posts.data.ts'
 
 const groupedByMonth = computed(() => {
@@ -31,7 +32,7 @@ function formatDate(dateStr) {
     <div v-for="[month, items] in groupedByMonth" :key="month" class="month-group">
       <h2 class="month-title">{{ month }} <span class="month-count">({{ items.length }})</span></h2>
       <div class="month-list">
-        <a v-for="post in items" :key="post.url" :href="post.url" class="archive-item">
+        <a v-for="post in items" :key="post.url" :href="withBase(post.url)" class="archive-item">
           <span class="archive-date">{{ formatDate(post.frontmatter.date) }}</span>
           <span class="archive-title">{{ post.frontmatter.title || 'AI 每日资讯速递' }}</span>
         </a>
