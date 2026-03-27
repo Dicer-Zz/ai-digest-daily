@@ -67,10 +67,9 @@ export default defineConfig({
     returnToTopLabel: '回到顶部',
   },
 
-  // Exclude old date folders and legacy files from VitePress
+  // Exclude non-content directories from VitePress build
   srcExclude: [
-    '2026-*/**',           // Old date-based folders
-    'scripts/**',
+    'archive/**',
     'node_modules/**',
   ],
 
